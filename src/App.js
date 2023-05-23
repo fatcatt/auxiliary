@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Head/index.tsx"
+import DeskIndex from "./pages/Desk/Index/index.tsx";
+import DeskPlay from './pages/Desk/VideoPlay/index.tsx'
+import MobileIndex from "./pages/Mobile/Index/index.tsx";
+import MobilePlay from './pages/Mobile/VideoPlay/index.tsx'
+import { isMobileOnly } from 'react-device-detect';
 
 function App() {
+  console.log(isMobileOnly)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter >
+      <Header></Header>
+      <Routes>
+        <Route path="/home" element={isMobileOnly? <MobileIndex/>: <DeskIndex/>} />
+        <Route path="/Play" element={isMobileOnly? <MobilePlay/>: <DeskPlay/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;

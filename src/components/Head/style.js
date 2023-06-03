@@ -1,21 +1,23 @@
 import styled from 'styled-components';
-import logoPic from '../../statics/logo.jpeg'
+import logoPic from '../../statics/logo.jpeg';
 export const HeaderWrapper = styled.div`
     position: relative;
-    height: 58px;
+    height: 308px;
     border-bottom: 1px solid #f0f0f0;
+    background-color: #333;
 `;
-export const Logo = styled.a.attrs({target: '_blank',href:'https://baike.baidu.com/item/高参/50581964?fr=aladdin'})`
+export const Logo = styled.a.attrs({target: '_blank', href: 'https://baike.baidu.com/item/高参/50581964?fr=aladdin'})`
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 30px;
+    left: 30px;
     display: block;
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     background: url(${logoPic});
     background-size: contain;
     margin-left: 20px;
     margin-top: 4px;
+    border-radius: 30px;
 `;
 export const Nav = styled.div`
     width: 960px;
@@ -53,7 +55,8 @@ export const NavSearch = styled.input.attrs({
     outline: none;
     border-radius: 19px;
     background: #eee;
-    font-size: 14px;,
+    font-size: 14px;
+    ,
     &::placeholder {
         color: #999;
     }

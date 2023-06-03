@@ -1,23 +1,39 @@
-import React, { useEffect } from "react";
-import IpDesc from './IpDesc/index.tsx'
-import PublicClass from './PublicClass/index.tsx'
-import Publicity from './Publicity/index.tsx'
-import { Col, Row } from 'antd';
-import './index.css'
+import React, {useEffect} from 'react';
+import IpDesc from './IpDesc/index.tsx';
+import PublicClass from '../PublicClass/index.tsx';
+import Publicity from '../Publicity/index.tsx';
+import Book from '../Book/index.tsx';
+import {Col, Row, List, Space, Tabs} from 'antd';
+import './index.css';
 
 // @ts-ignore ts-migrate(2700) FIXME: Rest types may only be created from object types.
-export default function Index () {
+export default function Index() {
+    const onChange = () => {};
     return (
         <div className="boxWrapper">
-            <Row justify="space-between">
-                <Col span={17}>
-                    <PublicClass></PublicClass>
-                </Col>
-                <Col span={6}>
-                    <Publicity></Publicity>
-                </Col>
-            </Row>
+            <Tabs
+                onChange={onChange}
+                type="card"
+                className="indexWrapper"
+                items={[
+                    {
+                        key: '1',
+                        label: <span>公开课</span>,
+                        children: (
+                            <Row justify="space-between">
+                                <Col span={17}>
+                                    <PublicClass></PublicClass>
+                                </Col>
+                                <Col span={6}>
+                                    <Publicity></Publicity>
+                                </Col>
+                            </Row>
+                        )
+                    },
+                    {key: '2', label: `书籍`, children: <Book></Book>},
+                    {key: '3', label: `排盘`, children: `Content of Tab Pane 1`}
+                ]}
+            ></Tabs>
         </div>
-    )
+    );
 }
-

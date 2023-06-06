@@ -31,7 +31,7 @@ export default function Index() {
                         )
                     },
                     {key: '2', label: `书籍`, children: <Book></Book>},
-                    {key: '3', label: `排盘`, children: `Content of Tab Pane 1`}
+                    {key: '3', label: `敬请期待`, children: `向我反馈你感兴趣的内容`}
                 ]}
             ></Tabs>
         </div>

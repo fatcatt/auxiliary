@@ -31,7 +31,8 @@ export default function Index() {
                         )
                     },
                     {key: '2', label: `书籍`, children: <Book></Book>},
-                    {key: '3', label: `敬请期待`, children: `向我反馈你感兴趣的内容`}
+                    {key: '3', label: `堪舆`, children: <Book></Book>},
+                    {key: '4', label: `敬请期待`, children: `向我反馈你感兴趣的内容`}
                 ]}
             ></Tabs>
         </div>

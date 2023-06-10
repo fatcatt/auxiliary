@@ -1,4 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import React, {Component, useState, useEffect} from 'react';
 import Header from './components/Head/index.tsx';
 import Footer from './components/Footer/index.tsx';
 import DeskIndex from './pages/Desk/Index/index.tsx';
@@ -11,7 +12,6 @@ import {List, Space} from 'antd';
 import {Star, Wechat} from '@icon-park/react';
 
 function App() {
-    console.log(isMobileOnly);
     return (
         <BrowserRouter>
             <Header></Header>

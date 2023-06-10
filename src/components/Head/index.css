@@ -15,3 +15,25 @@
     margin-top: 73px;
     font-size: 24px;
 }
+.User {
+    margin-right: 30px;
+    float: right;
+}
+.Login {
+    cursor: pointer;
+    color: #fff !important;
+}
+.Register {
+    cursor: pointer;
+    color: #fff !important;
+}
+.Login:hover,
+.Register:hover {
+    transform: scale(1.1);
+}
+.activeWay {
+    color: #daa520 !important;
+}
+.unactiveWay {
+    cursor: pointer;
+}

@@ -1,0 +1,5 @@
+.bookGao:hover {
+    transform: scale(1.1);
+    transition: all 0.25s ease-in;
+    transition: all 0.25s ease-out;
+}

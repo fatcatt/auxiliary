@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var QcloudSms = require('qcloudsms_js');
+const {SuccessModel, ErrorModel} = require('../model/resModel');
 // 短信应用SDK AppID
 var appid = 1400828298;
 // 短信应用SDK AppKey
@@ -14,29 +15,22 @@ var smsSign = '古籍网';
 // 实例化QcloudSms
 var qcloudsms = QcloudSms(appid, appkey);
 
-router.get('/', function (req, res, next) {
-    const {phoneNumber, verificationCode} = req.query;
-    // console.log(req.query);
-    // function callback(err, ress, resData) {
-    //     console.log(err);
-    //     console.log(ress);
-    //     if (err) {
-    //         console.log('error' + error);
-    //         // res.send('respond with a resource');
-    //     } else {
-    //         // console.log('request data: ', res.req);
-    //         // console.log('response data: ', resData);
-    //         // console.log('request data' + JSON.stringify(res.req));
-    //         res.send('respond with a resource');
-    //     }
-    // }
+router.post('/', function (req, res, next) {
+    const {phoneNumber, verificationCode} = req.body;
+    console.log(req.body);
+    function callback(err, ress, resData) {
+        if (err) {
+            // console.log('error' + error);
+            // res.send('respond with a resource');
+            res.json(new ErrorModel('发送失败，请稍后，或向我们反馈'));
+        } else {
+            res.json(new SuccessModel('短信已发送'));
+        }
+    }
 
-    // // 指定模板ID单发短信
-    // var ssender = qcloudsms.SmsSingleSender();
-    // // var params = ['5678'];
-    // ssender.sendWithParam(86, phoneNumber, templateId, [verificationCode], smsSign, '', '', callback); // 签名参数不能为空串
-    // // res.send('respond with a resourcejkldjf');
-    // console.log('sdf');
+    // 指定模板ID单发短信
+    var ssender = qcloudsms.SmsSingleSender();
+    ssender.sendWithParam(86, phoneNumber, templateId, [verificationCode], smsSign, '', '', callback); // 签名参数不能为空串
 });
 
 module.exports = router;

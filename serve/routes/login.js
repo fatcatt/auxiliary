@@ -28,5 +28,26 @@ router.post('/', function (req, res, next) {
         }
     });
 });
+router.post('/verified', function (req, res, next) {
+    // console.log(req.body);
+    pool.getConnection(function (err, connection) {
+        if (err) {
+            res.send(err);
+        } else {
+            connection.query(`SELECT * FROM registered WHERE phoneNumber = ${req.body.number}`, (err, users) => {
+                if (err) {
+                    res.json(new ErrorModel(err.sqlMessage));
+                } else {
+                    if (users.length) {
+                        const token = generateToken({username: JSON.parse(JSON.stringify(users))[0].username});
+                        res.json(new SuccessModel(token));
+                    } else {
+                        res.json('用户未注册，请先注册');
+                    }
+                }
+            });
+        }
+    });
+});
 
 module.exports = router;

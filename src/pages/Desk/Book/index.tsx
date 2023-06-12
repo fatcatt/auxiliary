@@ -60,7 +60,7 @@ export default function Book() {
     return (
         <div>
             <Title level={5}>高参专著</Title>
-            <Row style={{backgroundColor: '#ebedee', padding: '20px', borderRadius: '10px'}}>
+            <Row style={{backgroundColor: '#ebedee', padding: '20px'}}>
                 <Col span={6}>
                     <Tooltip title="点击查看简介" placement="right">
                         <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
@@ -86,7 +86,7 @@ export default function Book() {
                         <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
                             <Space>
                                 <h4 style={{float: 'left', marginTop: '10px'}}>{'《子平玄珠阐真》:'}</h4>
-                                <img src={require('../../../statics/minglijiyao.jpg')} className="bookGao" style={{width: '80px'}} />
+                                <img src={require('../../../statics/zipingxuanzhu.jpg')} className="bookGao" style={{width: '80px'}} />
                             </Space>
                         </a>
                     </Tooltip>
@@ -95,8 +95,8 @@ export default function Book() {
                     <Tooltip title="点击查看简介" placement="right">
                         <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
                             <Space>
-                                <h4 style={{float: 'left', marginTop: '10px'}}>{'《罗经正解》:'}</h4>
-                                <img src={require('../../../statics/minglijiyao.jpg')} className="bookGao" style={{width: '80px'}} />
+                                <h4 style={{float: 'left', marginTop: '10px'}}>{'《命理简要》:'}</h4>
+                                <img src={require('../../../statics/minglijianyao.jpeg')} className="bookGao" style={{width: '80px'}} />
                             </Space>
                         </a>
                     </Tooltip>

@@ -35,11 +35,14 @@ axios.interceptors.response.use(
     }
 );
 
-export const getLoginMessage = () => {
-    return axios.get(`/api/message`).then((res) => res.data);
+export const sentCode = (params) => {
+    return axios.post(`/api/message`, params).then((res) => res.data);
 };
 export const launchLogin = (params) => {
     return axios.post(`/api/login`, params).then((res) => res.data);
+};
+export const loginVerified = (params) => {
+    return axios.post(`/api/login/verified`, params).then((res) => res.data);
 };
 export const launchRegister = (params) => {
     return axios.post(`/api/register`, params).then((res) => res.data);

@@ -16,13 +16,15 @@
         "babel-loader": "^9.1.2",
         "jsonwebtoken": "^9.0.0",
         "mysql": "^2.18.1",
+        "pm2": "^5.3.0",
         "qcloudsms_js": "^0.1.1",
         "rc-footer": "^0.6.8",
         "react": "^18.2.0",
         "react-device-detect": "^2.2.3",
         "react-dom": "^18.2.0",
+        "react-photo-view": "^1.2.3",
         "react-router-config": "^5.1.1",
-        "react-router-dom": "^6.11.2",
+        "react-router-dom": "^6.12.1",
         "react-scripts": "5.0.1",
         "styled-components": "^6.0.0-rc.1",
         "video-react": "^0.16.0",
@@ -33,7 +35,8 @@
         "start": "set PORT=8000 && react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "prd": "cross-env NODE_ENV=production pm2 start ./bin/www"
     },
     "browserslist": {
         "production": [

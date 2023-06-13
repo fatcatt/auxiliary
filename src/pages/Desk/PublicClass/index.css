@@ -18,6 +18,23 @@
     display: flex;
     flex-wrap: wrap;
 }
+.listItem {
+    width: 100%;
+}
+.listItem:hover {
+    .listTitle {
+        color: #000 !important;
+    }
+}
+.listTitle {
+    color: #666;
+}
+.listTitle:hover {
+    color: #000;
+}
+.listItem:hover {
+    background-color: #f8fafc;
+}
 .player {
     height: 165px;
     width: 29%;

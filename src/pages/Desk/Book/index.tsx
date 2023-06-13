@@ -59,47 +59,69 @@ export default function Book() {
     const onClick = () => {};
     return (
         <div>
-            <Title level={5}>高参专著</Title>
-            <Row style={{backgroundColor: '#ebedee', padding: '20px'}}>
-                <Col span={6}>
-                    <Tooltip title="点击查看简介" placement="right">
-                        <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
-                            <Space>
-                                <h4>{'《命理辑要》:'}</h4>
-                                <img src={require('../../../statics/minglijiyao.jpg')} className="bookGao" style={{width: '80px'}} />
-                            </Space>
-                        </a>
-                    </Tooltip>
+            <a href="https://baike.baidu.com/item/高参/50581964?fromModule=lemma_sense-layer#viewPageContent" target="_blank">
+                <Title level={5}>高参专著</Title>
+            </a>
+            <Row gutter={[32, 16]}>
+                <Col span={12}>
+                    <div className="zhuanzhuCol">
+                        <Tooltip title="点击查看简介" placement="right">
+                            <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
+                                <img src={require('../../../statics/minglijiyao.jpg')} className="bookGao" style={{width: '80px', float: 'right'}} />
+                                <div>
+                                    <h4>{'《命理辑要》:'}</h4>
+                                    <span>
+                                        {'命理辑要，是高参代表作，融会了传统命理的精髓与茅山命理前辈的实战经验，全书结合近200造命例进行解读茅山命理理论体系。是四柱命理学之作。'}
+                                    </span>
+                                </div>
+                            </a>
+                        </Tooltip>
+                    </div>
                 </Col>
-                <Col span={6}>
-                    <Tooltip title="点击查看简介" placement="right">
-                        <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
-                            <Space>
-                                <h4 style={{float: 'left', marginTop: '10px'}}>{'《形峦辑要》:'}</h4>
-                                <img src={require('../../../statics/minglijiyao.jpg')} className="bookGao" style={{width: '80px'}} />
-                            </Space>
-                        </a>
-                    </Tooltip>
+                <Col span={12}>
+                    <div className="zhuanzhuCol">
+                        <Tooltip title="点击查看简介" placement="right">
+                            <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
+                                <img src={require('../../../statics/minglijiyao.jpg')} className="bookGao" style={{width: '80px', float: 'right'}} />
+                                <div>
+                                    <h4>{'《形峦辑要》:'}</h4>
+                                    <span>
+                                        {'命理辑要，是高参代表作，融会了传统命理的精髓与茅山命理前辈的实战经验，全书结合近200造命例进行解读茅山命理理论体系。是四柱命理学之作。'}
+                                    </span>
+                                </div>
+                            </a>
+                        </Tooltip>
+                    </div>
                 </Col>
-                <Col span={6}>
-                    <Tooltip title="点击查看简介" placement="right">
-                        <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
-                            <Space>
-                                <h4 style={{float: 'left', marginTop: '10px'}}>{'《子平玄珠阐真》:'}</h4>
-                                <img src={require('../../../statics/zipingxuanzhu.jpg')} className="bookGao" style={{width: '80px'}} />
-                            </Space>
-                        </a>
-                    </Tooltip>
+                <Col span={12}>
+                    <div className="zhuanzhuCol">
+                        <Tooltip title="点击查看简介" placement="right">
+                            <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
+                                <img src={require('../../../statics/zipingxuanzhu.jpg')} className="bookGao" style={{width: '80px', float: 'right'}} />
+                                <div>
+                                    <h4>{'《子平玄珠阐真》:'}</h4>
+                                    <span>
+                                        {'命理辑要，是高参代表作，融会了传统命理的精髓与茅山命理前辈的实战经验，全书结合近200造命例进行解读茅山命理理论体系。是四柱命理学之作。'}
+                                    </span>
+                                </div>
+                            </a>
+                        </Tooltip>
+                    </div>
                 </Col>
-                <Col span={6}>
-                    <Tooltip title="点击查看简介" placement="right">
-                        <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
-                            <Space>
-                                <h4 style={{float: 'left', marginTop: '10px'}}>{'《命理简要》:'}</h4>
-                                <img src={require('../../../statics/minglijianyao.jpeg')} className="bookGao" style={{width: '80px'}} />
-                            </Space>
-                        </a>
-                    </Tooltip>
+                <Col span={12}>
+                    <div className="zhuanzhuCol">
+                        <Tooltip title="点击查看简介" placement="right">
+                            <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
+                                <img src={require('../../../statics/minglijianyao.jpeg')} className="bookGao" style={{width: '80px', float: 'right'}} />
+                                <div>
+                                    <h4>{'《命理简要》:'}</h4>
+                                    <span>
+                                        {'命理辑要，是高参代表作，融会了传统命理的精髓与茅山命理前辈的实战经验，全书结合近200造命例进行解读茅山命理理论体系。是四柱命理学之作。'}
+                                    </span>
+                                </div>
+                            </a>
+                        </Tooltip>
+                    </div>
                 </Col>
             </Row>
 

@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../../../node_modules/video-react/dist/video-react.css';
 import {Player} from 'video-react';
 import './index.css';
 import {List, Space, Tabs} from 'antd';
 import {VideoOne} from '@icon-park/react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 const classNames = [
     '视频：第一节 首观结构，次观大运',
@@ -37,24 +37,34 @@ const urlPosters = [
     'https://main-1307190758.cos.ap-beijing.myqcloud.com/2020-public008-poster.jpg'
 ];
 function App() {
+    const navigate = useNavigate();
     const onChange = () => {};
+    const [listId, setListId] = useState('');
     return (
         <div>
             <div className="publicWrapper">
                 <p className="title">2020年高参命理公益课</p>
                 <List
-                    style={{display: 'flex', justifyContent: 'flex-start'}}
                     size="large"
                     bordered={false}
                     split={false}
                     dataSource={classNames}
                     renderItem={(item, i) => {
                         return (
-                            <List.Item>
+                            <List.Item
+                                className="listItem"
+                                onMouseOver={() => {
+                                    setListId(i);
+                                }}
+                                onMouseLeave={() => {
+                                    setListId('');
+                                }}
+                                onClick={() => navigate(`/play?year=2020&id=${i}`)}
+                            >
                                 <Space>
-                                    <VideoOne size="16" fill="#d9dde1" theme="filled" style={{top: '3px', position: 'relative'}} />
-                                    <Link to={`/play?id=${i}`} target="_blank">
-                                        {item}
+                                    <VideoOne size="16" fill={i === listId ? '#1fad4e' : '#d9dde1'} theme="filled" style={{top: '3px', position: 'relative'}} />
+                                    <Link to={`/play?year=2020&id=${i}`} target="_blank">
+                                        <span className="listTitle">{item}</span>
                                     </Link>
                                 </Space>
                             </List.Item>

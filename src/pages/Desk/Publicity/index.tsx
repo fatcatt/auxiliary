@@ -1,6 +1,5 @@
-
-import React, {useEffect}  from "react"
-import { List } from 'antd';
+import React, {useEffect} from 'react';
+import {List} from 'antd';
 
 function Publicity() {
     const data = [
@@ -20,18 +19,44 @@ function Publicity() {
             url: 'https://mp.weixin.qq.com/s/rpi58KzbIycxPQJmFWTiCg',
             name: '关于《子平玄珠》中康海状元的命理研究'
         }
-      ];
-  return (
-    <>
-        <List
-            size="large"
-            header={<div>宣传··</div>}
-            footer={<div>Footer</div>}
-            bordered
-            dataSource={data}
-            renderItem={(item) => <List.Item><a href={item.url} target='_blank'>{item.name}</a></List.Item>}
-        />
-    </>
-  );
+    ];
+    const Investigate = [
+        {
+            url: 'https://mp.weixin.qq.com/s/lMPFApaMy1GQTMpQ154SjA',
+            name: '辛丑年第一期潮汕面授班圆满收官！'
+        }
+    ];
+
+    return (
+        <>
+            <List
+                size="large"
+                header={<div>文章</div>}
+                bordered
+                dataSource={data}
+                style={{marginBottom: '16px'}}
+                renderItem={(item) => (
+                    <List.Item>
+                        <a href={item.url} target="_blank">
+                            {item.name}
+                        </a>
+                    </List.Item>
+                )}
+            />
+            <List
+                size="large"
+                header={<div>考察活动</div>}
+                bordered
+                dataSource={Investigate}
+                renderItem={(item) => (
+                    <List.Item>
+                        <a href={item.url} target="_blank">
+                            {item.name}
+                        </a>
+                    </List.Item>
+                )}
+            />
+        </>
+    );
 }
 export default Publicity;

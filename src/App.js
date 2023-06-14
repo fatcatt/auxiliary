@@ -14,13 +14,15 @@ import {Star, Wechat} from '@icon-park/react';
 function App() {
     return (
         <BrowserRouter>
-            <Header></Header>
-            <Routes>
-                <Route path="/" element={<Navigate to="/home" />} />
-                <Route path="/home" element={isMobileOnly ? <MobileIndex /> : <DeskIndex />} />
-                <Route path="/Play" element={isMobileOnly ? <MobilePlay /> : <DeskPlay />} />
-                <Route path="/bookrender" element={isMobileOnly ? <PdfRender /> : <PdfRender />} />
-            </Routes>
+            <div style={{minHeight: 'calc(100vh - 120px)'}}>
+                <Header></Header>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/home" />} />
+                    <Route path="/home" element={isMobileOnly ? <MobileIndex /> : <DeskIndex />} />
+                    <Route path="/Play" element={isMobileOnly ? <MobilePlay /> : <DeskPlay />} />
+                    <Route path="/bookrender" element={isMobileOnly ? <PdfRender /> : <PdfRender />} />
+                </Routes>
+            </div>
             <Footer />
         </BrowserRouter>
     );

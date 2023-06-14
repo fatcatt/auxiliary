@@ -42,8 +42,8 @@ function App() {
     const [listId, setListId] = useState('');
     return (
         <div>
-            <div className="publicWrapper">
-                <p className="title">2020年高参命理公益课</p>
+            <div className="MobilePublicWrapper">
+                <p className="MobileTitle">2020年高参命理公益课</p>
                 <List
                     size="large"
                     bordered={false}
@@ -52,7 +52,7 @@ function App() {
                     renderItem={(item, i) => {
                         return (
                             <List.Item
-                                className="listItem"
+                                className="MobileListItem"
                                 onMouseOver={() => {
                                     setListId(i);
                                 }}
@@ -64,7 +64,7 @@ function App() {
                                 <Space>
                                     <VideoOne size="16" fill={i === listId ? '#1fad4e' : '#d9dde1'} theme="filled" style={{top: '3px', position: 'relative'}} />
                                     <Link to={`/play?year=2020&id=${i}`} target="_blank">
-                                        <span className="listTitle">{item}</span>
+                                        <span className="MobileListTitle">{item}</span>
                                     </Link>
                                 </Space>
                             </List.Item>
@@ -86,7 +86,7 @@ function App() {
                     )
                 })}
             </div> */}
-                <p className="title">2021年高参命理公益课</p>
+                <p className="MobileTitle">2021年高参命理公益课</p>
             </div>
         </div>
     );

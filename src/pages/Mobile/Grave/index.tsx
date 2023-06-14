@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Row, List, Space, Descriptions, Typography, Menu, Tabs, Tooltip, Card} from 'antd';
-import styles from './index.module.css';
+import './index.module.css';
 import {PhotoProvider, PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import lijiacheng from '../../../statics/graves/celebrity/fengshui_lijiacheng.jpg';
@@ -53,10 +53,10 @@ const gravesUndone = [
 const GraveCard = (data) => {
     const {graves} = data;
     return (
-        <Row gutter={16}>
+        <Row gutter={8}>
             {graves.map((e) => {
                 return (
-                    <Col span={6} style={{marginBottom: '30px'}}>
+                    <Col span={12} style={{marginBottom: '30px'}}>
                         <Card
                             title={
                                 <PhotoProvider>

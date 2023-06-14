@@ -8,7 +8,7 @@ import {Col, Row, List, Space, Tabs} from 'antd';
 import {useNavigate} from 'react-router-dom';
 import {parseUrlParams} from '../../../utils/index';
 
-import './index.css';
+import styles from './index.module.css';
 
 // @ts-ignore ts-migrate(2700) FIXME: Rest types may only be created from object types.
 export default function Index() {
@@ -23,12 +23,12 @@ export default function Index() {
         navigate(`/home?page=${e}`);
     };
     return (
-        <div className="boxWrapper">
+        <div className={styles.boxWrapper}>
             <Tabs
                 onChange={onChange}
                 type="card"
                 activeKey={activeKey}
-                className="indexWrapper"
+                className={styles.indexWrapper}
                 items={[
                     {
                         key: 'publicclass',

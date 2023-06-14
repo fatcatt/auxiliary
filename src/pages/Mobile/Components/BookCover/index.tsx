@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Row, List, Space, Descriptions, Typography, Menu, Divider} from 'antd';
 import {Link} from 'react-router-dom';
-import './index.css';
+import styles from './index.module.css';
 
 // @ts-ignore ts-migrate(2700) FIXME: Rest types may only be created from object types.
 function BookCover(props) {
@@ -11,16 +11,16 @@ function BookCover(props) {
             {books.map((e, i) => {
                 return (
                     <Link to={e.url} target="_blank">
-                        <div className="bookWrapper">
-                            <div className="encapsulation">
+                        <div className={styles.bookWrapper}>
+                            <div className={styles.encapsulation}>
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                             </div>
-                            <div className="bookTitle">
-                                <div className="bookContentTitle">{e.title}</div>
+                            <div className={styles.bookTitle}>
+                                <div className={styles.bookContentTitle}>{e.title}</div>
                             </div>
                         </div>
                     </Link>

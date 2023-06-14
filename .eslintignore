@@ -1,0 +1,4 @@
+/.git/
+/.Vscode/
+node_modules//
+dist/

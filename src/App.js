@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import React, {Component, useState, useEffect} from 'react';
 import Header from './components/Head/index.tsx';
 import Footer from './components/Footer/index.tsx';
@@ -16,6 +16,7 @@ function App() {
         <BrowserRouter>
             <Header></Header>
             <Routes>
+                <Route path="/" element={<Navigate to="/home" />} />
                 <Route path="/home" element={isMobileOnly ? <MobileIndex /> : <DeskIndex />} />
                 <Route path="/Play" element={isMobileOnly ? <MobilePlay /> : <DeskPlay />} />
                 <Route path="/bookrender" element={isMobileOnly ? <PdfRender /> : <PdfRender />} />

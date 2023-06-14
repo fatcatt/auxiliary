@@ -81,13 +81,11 @@ export default function Book() {
                 <Col span={12}>
                     <div className="zhuanzhuCol">
                         <Tooltip title="点击查看简介" placement="right">
-                            <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
-                                <img src={require('../../../statics/minglijiyao.jpg')} className="bookGao" style={{width: '80px', float: 'right'}} />
+                            <a href="https://mp.weixin.qq.com/s/zwWs3il4mPbIsGRocunvSA" target="blank" style={{color: '#333'}}>
+                                <img src={require('../../../statics/xingluanjiyao.jpg')} className="bookGao" style={{width: '80px', float: 'right'}} />
                                 <div>
                                     <h4>{'《形峦辑要》:'}</h4>
-                                    <span>
-                                        {'命理辑要，是高参代表作，融会了传统命理的精髓与茅山命理前辈的实战经验，全书结合近200造命例进行解读茅山命理理论体系。是四柱命理学之作。'}
-                                    </span>
+                                    <p>{'本书为汇篇先贤所述，并结合家学，考验求证，后摘录成书。重于形峦古法，专为格龙、审砂、辨水、点穴之技。'}</p>
                                 </div>
                             </a>
                         </Tooltip>
@@ -96,13 +94,15 @@ export default function Book() {
                 <Col span={12}>
                     <div className="zhuanzhuCol">
                         <Tooltip title="点击查看简介" placement="right">
-                            <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
+                            <a href="https://mp.weixin.qq.com/s/zwWs3il4mPbIsGRocunvSA" target="blank" style={{color: '#333'}}>
                                 <img src={require('../../../statics/zipingxuanzhu.jpg')} className="bookGao" style={{width: '80px', float: 'right'}} />
                                 <div>
                                     <h4>{'《子平玄珠阐真》:'}</h4>
-                                    <span>
-                                        {'命理辑要，是高参代表作，融会了传统命理的精髓与茅山命理前辈的实战经验，全书结合近200造命例进行解读茅山命理理论体系。是四柱命理学之作。'}
-                                    </span>
+                                    <p>
+                                        {
+                                            '《子平玄珠》一书中，存在许多四柱错误，生平的错误，甚至命主姓名出现错误。故笔者萌生重新校对注解古书的想法，以期能纠正错误，不至于以谬传谬，误了后人。'
+                                        }
+                                    </p>
                                 </div>
                             </a>
                         </Tooltip>
@@ -111,12 +111,14 @@ export default function Book() {
                 <Col span={12}>
                     <div className="zhuanzhuCol">
                         <Tooltip title="点击查看简介" placement="right">
-                            <a href="https://baike.baidu.com/item/命理辑要/54310676?fr=aladdin" target="blank" style={{color: '#333'}}>
+                            <a href="https://mp.weixin.qq.com/s/zwWs3il4mPbIsGRocunvSA" target="blank" style={{color: '#333'}}>
                                 <img src={require('../../../statics/minglijianyao.jpeg')} className="bookGao" style={{width: '80px', float: 'right'}} />
                                 <div>
                                     <h4>{'《命理简要》:'}</h4>
                                     <span>
-                                        {'命理辑要，是高参代表作，融会了传统命理的精髓与茅山命理前辈的实战经验，全书结合近200造命例进行解读茅山命理理论体系。是四柱命理学之作。'}
+                                        {
+                                            '前著《命理辑要》一书，简要辨证分析以备学者参悟玄机。提辑命学之精要。但《命理辑要》一书对于初学者而言，稍有难度。故笔者荫生编著一本通俗易懂的入门书，简单集萃入门必学知识，提要重点，力求通读此书则可入门。并命其名为《命理简要》。'
+                                        }
                                     </span>
                                 </div>
                             </a>

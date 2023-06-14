@@ -90,7 +90,7 @@ export default function Grave() {
                 },
                 {
                     key: '2',
-                    label: `Tab 2`,
+                    label: `待选`,
                     children: <GraveCard graves={gravesUndone}></GraveCard>
                 }
             ]}

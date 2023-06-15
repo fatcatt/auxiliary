@@ -26,15 +26,15 @@ import hangzhou2 from '../../../statics/graves/undone/hangzhou2.jpg';
 import hangzhou3 from '../../../statics/graves/undone/hangzhou2.jpg';
 
 const gravesCelebrity = [
-    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/2020-public001-poster.jpg', address: '潮汕 李氏'},
-    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/2020-public001-poster.jpg', address: '广东 茂名黄氏'},
-    {titileImg: mahuateng, address: '广东 潮州马氏'},
-    {titileImg: gaozhou_yang, address: '广东 高州杨氏'},
-    {titileImg: gaozhou_xu, address: '广东 高州许氏'},
-    {titileImg: guangdong_liang, address: '广东 云浮梁氏'},
-    {titileImg: maoming_li, address: '广东 茂名李氏'},
-    {titileImg: maoming_gan, address: '广东 茂名甘氏'},
-    {titileImg: guangdong_yangjiang, address: '广东 阳江'}
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/lijiacheng.jpg', address: '潮汕 李氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/maoming_huang.jpg', address: '广东 茂名黄氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/maoming_huang.jpg', address: '广东 潮州马氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/gaozhou_yang.jpg', address: '广东 高州杨氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/gaozhou_xu.jpg', address: '广东 高州许氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/guangdong_liang.jpg', address: '广东 云浮梁氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/maoming_li.jpg', address: '广东 茂名李氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/maoming_gan.jpg', address: '广东 茂名甘氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/celebrity/guangdong_yangjiang.jpg', address: '广东 阳江'}
 ];
 const gravesUndone = [
     {titileImg: qingdao1, address: '青岛'},

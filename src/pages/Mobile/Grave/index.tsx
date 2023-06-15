@@ -26,8 +26,8 @@ import hangzhou2 from '../../../statics/graves/undone/hangzhou2.jpg';
 import hangzhou3 from '../../../statics/graves/undone/hangzhou2.jpg';
 
 const gravesCelebrity = [
-    {titileImg: lijiacheng, address: '潮汕 李氏'},
-    {titileImg: maoming_huang, address: '广东 茂名黄氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/2020-public001-poster.jpg', address: '潮汕 李氏'},
+    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/2020-public001-poster.jpg', address: '广东 茂名黄氏'},
     {titileImg: mahuateng, address: '广东 潮州马氏'},
     {titileImg: gaozhou_yang, address: '广东 高州杨氏'},
     {titileImg: gaozhou_xu, address: '广东 高州许氏'},

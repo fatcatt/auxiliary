@@ -24,7 +24,6 @@ import guangxi_hezhou1 from '../../../statics/graves/undone/guangxi_hezhou1.jpg'
 import hangzhou1 from '../../../statics/graves/undone/hangzhou1.jpg';
 import hangzhou2 from '../../../statics/graves/undone/hangzhou2.jpg';
 import hangzhou3 from '../../../statics/graves/undone/hangzhou2.jpg';
-
 const gravesCelebrity = [
     {titileImg: lijiacheng, address: '潮汕 李氏'},
     {titileImg: maoming_huang, address: '广东 茂名黄氏'},

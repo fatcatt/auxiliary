@@ -4,15 +4,16 @@ import Footer from 'rc-footer';
 import 'rc-footer/assets/index.css';
 import {List, Space, Tooltip} from 'antd';
 import {Star, Wechat, Weibo} from '@icon-park/react';
-import './index.css';
 
+import './index.css';
+const PADDING = isMobileOnly ? '8px' : '64px';
 function FooterCom() {
     return (
-        <div style={{height: '80px', backgroundColor: '#000', paddingTop: '40px', paddingLeft: '64px', paddingRight: '64px'}}>
+        <div style={{height: '80px', backgroundColor: '#000', paddingTop: '40px', paddingLeft: PADDING, paddingRight: PADDING}}>
             {/* <span>
                 <img src={require('../../statics/logo.jpeg')} style={{borderRadius: '20px', width: '40px'}} />
             </span> */}
-            <span style={{color: '#c3c3c3'}}>京ICP备2023013566号-1</span>
+            <div style={{color: '#c3c3c3', display: 'inline-block', height: '22px', lineHeight: '22px'}}>京ICP备2023013566号-1</div>
             <Space style={{float: 'right'}}>
                 <Tooltip title="使用Command+D可将网页添加到书签">
                     <div className="iconBox">

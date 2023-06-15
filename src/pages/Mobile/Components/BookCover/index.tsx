@@ -17,7 +17,6 @@ function BookCover(props) {
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                                 <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
-                                <Divider style={{marginBottom: '30px', backgroundColor: '#fff'}} />
                             </div>
                             <div className={styles.bookTitle}>
                                 <div className={styles.bookContentTitle}>{e.title}</div>

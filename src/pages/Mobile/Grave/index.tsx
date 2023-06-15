@@ -45,7 +45,7 @@ const gravesUndone = [
     {titileImg: hunan_hengyang2, address: '湖南 衡阳'},
     {titileImg: hunan_hengyang3, address: '湖南 衡阳'},
     {titileImg: guangxi_hezhou1, address: '广西 贺州'},
-    {titileImg: 'https://main-1307190758.cos.ap-beijing.myqcloud.com/2020-public001-poster.jpg', address: '杭州'},
+    {titileImg: hangzhou1, address: '杭州'},
     {titileImg: hangzhou2, address: '杭州'},
     {titileImg: hangzhou3, address: '杭州'}
 ];

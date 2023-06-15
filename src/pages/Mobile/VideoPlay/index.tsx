@@ -45,7 +45,9 @@ function App() {
     return (
         <div style={{padding: '15px'}}>
             <div style={{width: '90%'}}>
-                <Player playsInline poster={urlPosters[id]} src={urls[id]} />
+                <video width="320" height="240" controls poster={urlPosters[id]}>
+                    <source src={urls[id]} type="video/mp4"></source>
+                </video>
             </div>
         </div>
     );

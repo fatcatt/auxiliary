@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Row, List, Space, Descriptions, Typography, Menu, Divider} from 'antd';
 import {Link} from 'react-router-dom';
-import styles from './index.css';
+import styles from './index.module.css';
 
 // @ts-ignore ts-migrate(2700) FIXME: Rest types may only be created from object types.
 function BookCover(props) {

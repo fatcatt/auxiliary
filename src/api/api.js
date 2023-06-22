@@ -13,19 +13,21 @@ axios.interceptors.request.use((request) => {
 // 拦截响应，遇到token不合法则报错
 axios.interceptors.response.use(
     (response) => {
+        console.log(response);
         if (response.data.token) {
             console.log('token:', response.data.token);
             window.localStorage.setItem('token', response.data.token);
         }
         if (response.data.errno === -1) {
-            return Promise.reject(response.data.message);
+            return Promise.reject(response.data);
         } else {
             return response;
         }
     },
     (error) => {
+        console.log(error);
         const errRes = error.response;
-        if (errRes.status === 401) {
+        if (errRes?.status === 401) {
             window.localStorage.removeItem('token');
             swal('Auth Error!', `${errRes.data.error.message}, please login!`, 'error').then(() => {
                 history.push('/login');

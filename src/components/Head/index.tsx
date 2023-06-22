@@ -47,15 +47,19 @@ function Header() {
                     loginMethod(values, '');
                 } else {
                     if (values.verification === verificationCode) {
-                        loginVerified(values).then((res) => {
-                            const tokenDate = res.message.split('.');
-                            message.success('登录成功');
-                            var userinfo = JSON.parse(decodeURIComponent(escape(window.atob(tokenDate[1].replace(/-/g, '+').replace(/_/g, '/')))));
-                            localStorage.setItem('username', userinfo.username);
-                            localStorage.setItem('token', res.message);
-                            setUserName(userinfo.username);
-                            setloginVisible(false);
-                        });
+                        loginVerified(values)
+                            .then((res) => {
+                                const tokenDate = res.message.split('.');
+                                message.success('登录成功');
+                                var userinfo = JSON.parse(decodeURIComponent(escape(window.atob(tokenDate[1].replace(/-/g, '+').replace(/_/g, '/')))));
+                                localStorage.setItem('username', userinfo.username);
+                                localStorage.setItem('token', res.message);
+                                setUserName(userinfo.username);
+                                setloginVisible(false);
+                            })
+                            .catch((e) => {
+                                console.log(e);
+                            });
                     } else {
                         message.error('验证失败，请确认验证码');
                     }
@@ -80,7 +84,7 @@ function Header() {
                 });
             })
             .catch((e) => {
-                message.error(e);
+                message.error(e.message);
             });
     };
 
@@ -108,7 +112,7 @@ function Header() {
                 }
             })
             .catch((e) => {
-                console.log(e);
+                message.error(e?.message || e);
             });
     };
 

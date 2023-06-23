@@ -7,7 +7,7 @@ const devConfig = {
     password: '12345678'
 };
 const prodConfig = {
-    host: '124.221.158.62',
+    host: 'http://124.221.158.62',
     port: 3306, //端口号
     database: 'users',
     user: 'root',

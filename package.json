@@ -35,7 +35,7 @@
         "xss": "^1.0.14"
     },
     "scripts": {
-        "start": "cross-env NODE_ENV=production PORT=3001 pm2 start ./bin/www",
+        "start": "cross-env NODE_ENV=production PORT=3001 eact-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",

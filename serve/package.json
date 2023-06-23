@@ -3,12 +3,13 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "nodemon ./bin/www",
-        "prd": "pm2 start ./bin/www"
+        "start": "cross-env NODE_ENV=development nodemon ./bin/www",
+        "pm2": "cross-env NODE_ENV=production pm2 start ./bin/www"
     },
     "dependencies": {
         "axios": "^1.4.0",
         "cookie-parser": "~1.4.4",
+        "cross-env": "^7.0.3",
         "debug": "~2.6.9",
         "express": "~4.16.1",
         "express-jwt": "^8.4.1",

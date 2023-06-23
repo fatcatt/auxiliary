@@ -1,5 +1,6 @@
 const {createProxyMiddleware} = require('http-proxy-middleware');
 const env = process.env.NODE_ENV == 'production' ? 'http://124.221.158.62' : 'http://localhost:3002';
+console.log(env);
 module.exports = function (app) {
     app.use(
         createProxyMiddleware('/api', {

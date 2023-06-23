@@ -96,6 +96,7 @@ function Header() {
                 if (verificationCode === values.verification) {
                     launchRegister(values)
                         .then((res) => {
+                            console.log(res);
                             loginMethod(
                                 {
                                     number: values.number,
@@ -105,7 +106,7 @@ function Header() {
                             );
                         })
                         .catch((e) => {
-                            message.error(e);
+                            message.error(e?.message || e);
                         });
                 } else {
                     message.error('验证码有误，请重新输入');

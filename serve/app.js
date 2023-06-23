@@ -26,10 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/login', loginRouter);
-app.use('/api/register', registerRouter);
-app.use('/api/message', messageRouter);
-app.use('/api/*', auth.verifyToken);
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);
+app.use('/message', messageRouter);
+app.use('/*', auth.verifyToken);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

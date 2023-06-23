@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 // axios拦截器
 // 拦截请求，给所有的请求都带上token
 axios.interceptors.request.use((request) => {

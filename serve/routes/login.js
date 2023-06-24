@@ -8,10 +8,9 @@ const {genPassword} = require('../utils/cryp.js');
 const escape = mysql.escape;
 /* GET users listing. */
 router.post('/', function (req, res, next) {
-    // console.log(req.body);
     const number = escape(req.body.number);
     const password = genPassword(req.body.password);
-    const password_esc = escape(req.body.password);
+    const password_esc = escape(password);
     pool.getConnection(function (err, connection) {
         if (err) {
             res.send(err);
@@ -32,7 +31,6 @@ router.post('/', function (req, res, next) {
     });
 });
 router.post('/verified', function (req, res, next) {
-    // console.log(req.body);
     const number = escape(req.body.number);
     pool.getConnection(function (err, connection) {
         if (err) {

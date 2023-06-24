@@ -14,7 +14,6 @@ router.post('/', function (req, res, next) {
         if (err) {
             res.send(err);
         } else {
-            console.log(req.body.number);
             connection.query(`SELECT * FROM registered WHERE phoneNumber = ${req.body.number}`, (err, users) => {
                 if (err) {
                     res.json(new ErrorModel(err.sqlMessage));

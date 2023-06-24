@@ -38,7 +38,6 @@ function Header() {
 
     const handleLogin = () => {
         const values = $login.getFieldsValue();
-        console.log($login.validateFields());
         $login
             .validateFields()
             .then((values) => {
@@ -58,7 +57,7 @@ function Header() {
                                 setloginVisible(false);
                             })
                             .catch((e) => {
-                                console.log(e);
+                                message.error(e);
                             });
                     } else {
                         message.error('验证失败，请确认验证码');
@@ -138,6 +137,7 @@ function Header() {
                 verificationCode: CODE
             };
             sentCode(params).then((res) => {
+                message.success('验证码已发送，请注意查收');
                 $form === '$login' ? setSeconds(60) : setRegisterSeconds(60);
             });
         } else {
@@ -282,7 +282,7 @@ function Header() {
                             <Space.Compact style={{width: '100%'}}>
                                 <Input placeholder="输入验证码" />
                                 <Button style={{backgroundColor: '#eee'}} onClick={() => getVerification($register)} disabled={registerSeconds > 0}>
-                                    {seconds > 0 ? `${seconds}s后可重新发送` : '获取验证码'}
+                                    {registerSeconds > 0 ? `${registerSeconds}s后可重新发送` : '获取验证码'}
                                 </Button>
                             </Space.Compact>
                         </Form.Item>

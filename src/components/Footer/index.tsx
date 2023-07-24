@@ -13,7 +13,12 @@ function FooterCom() {
             {/* <span>
                 <img src={require('../../statics/logo.jpeg')} style={{borderRadius: '20px', width: '40px'}} />
             </span> */}
-            <div style={{color: '#c3c3c3', display: 'inline-block', height: '22px', lineHeight: '22px'}}>京ICP备2023013566号-1</div>
+            <div style={{color: '#c3c3c3', display: 'inline-block', height: '22px', lineHeight: '22px'}}>
+                备案号：
+                <a href="https://beian.miit.gov.cn/" target="_blank" style={{textDecoration: 'none', color: '#c3c3c3'}}>
+                    京ICP备2023013566号-1
+                </a>
+            </div>
             <Space style={{float: 'right'}}>
                 <Tooltip title="使用Command+D可将网页添加到书签">
                     <div className="iconBox">

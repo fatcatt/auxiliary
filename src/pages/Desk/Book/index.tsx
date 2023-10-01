@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Row, List, Space, Descriptions, Typography, Menu, Tabs, Tooltip} from 'antd';
 import BookCover from '../Components/BookCover/index.tsx';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 const {Title} = Typography;
 const BOOKS = [
@@ -59,7 +59,7 @@ export default function Book() {
     ];
     const onClick = () => {};
     return (
-        <div>
+        <div className={styles.boxWrapper}>
             <a href="https://baike.baidu.com/item/高参/50581964?fromModule=lemma_sense-layer#viewPageContent" target="_blank">
                 <Title level={5}>高参专著</Title>
             </a>

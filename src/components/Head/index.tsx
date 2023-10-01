@@ -1,8 +1,9 @@
 import React, {Component, useState, useEffect} from 'react';
-import './index.css';
-import {Space, Typography, Modal, Form, Button, Input, Divider, message, Dropdown, Tooltip} from 'antd';
+import './index.scss';
+import {Space, Typography, Modal, Form, Button, Input, Divider, message, Dropdown, Tooltip, Menu} from 'antd';
 import {sentCode, launchLogin, launchRegister, loginVerified} from '../../api/api';
-
+import {Link} from 'react-router-dom';
+const currentPath = window.location.pathname;
 const {Title} = Typography;
 
 const useCountDown = (s) => {
@@ -17,7 +18,7 @@ const useCountDown = (s) => {
 
     return [seconds, setSeconds];
 };
-
+const LISTS = ['fengshui', 'home', 'ebook', 'mail'];
 function Header() {
     const [$login] = Form.useForm();
     const [$register] = Form.useForm();
@@ -28,6 +29,15 @@ function Header() {
     const [seconds, setSeconds] = useCountDown(0);
     const [registerSeconds, setRegisterSeconds] = useCountDown(0);
     const [userName, setUserName] = useState(localStorage.getItem('username'));
+    const [currentMenu, setCurrentMenu] = useState('');
+
+    useEffect(() => {
+        for (let list of LISTS) {
+            if (currentPath.indexOf(list) !== -1) {
+                setCurrentMenu(list);
+            }
+        }
+    }, [currentPath]);
 
     const showLogin = () => {
         setloginVisible(true);
@@ -122,6 +132,11 @@ function Header() {
     const handleCancelRegister = () => {
         setRegisterVisible(false);
     };
+
+    const handleChangeMenu = (menu) => {
+        setCurrentMenu(menu.key);
+    };
+
     const onFinish = () => {};
 
     const getVerification = ($form) => {
@@ -168,9 +183,48 @@ function Header() {
             )
         }
     ];
+    const menus = [
+        {
+            label: '堪舆',
+            key: 'fengshui',
+            path: '/fengshui'
+        },
+        {
+            label: '公开课',
+            key: 'home',
+            path: '/home'
+        },
+        {
+            label: '书籍',
+            key: 'ebook',
+            path: '/ebook'
+        },
+        {
+            label: '敬请期待',
+            key: 'mail',
+            path: 'grave'
+        }
+    ];
     return (
         <>
-            <div style={{height: '50px', backgroundColor: '#fff', borderBottom: '2px solid #eee'}}>
+            <div className="HeaderWrapper">
+                <div style={{paddingRight: '180px'}}>
+                    <Space>
+                        <Space style={{marginRight: '32px'}}>
+                            <img src={require('../../statics/logo.jpg')} className="HeaderLogo" />
+                            <p className="HeaderTitle">{'茅山易学术数'}</p>
+                        </Space>
+                        {menus.map((e) => {
+                            return (
+                                <Link to={e.path} className="MenuLink" onClick={() => handleChangeMenu(e)}>
+                                    <p className={currentMenu === e.key ? 'activeMenu' : 'unActiveMenu'}>{e.label}</p>
+                                </Link>
+                            );
+                        })}
+                    </Space>
+                </div>
+            </div>
+            <div style={{position: 'absolute', top: '30px', right: '30px'}}>
                 <Space className="User">
                     {userName ? (
                         <Dropdown menu={{items}} placement="bottomLeft" arrow>
@@ -191,11 +245,7 @@ function Header() {
                     )}
                 </Space>
             </div>
-            <div className="HeaderWrapper">
-                <Space>
-                    <img src={require('../../statics/logo.jpeg')} className="HeaderLogo" />
-                    <p className="HeaderTitle">{'茅山易学术数'}</p>
-                </Space>
+            <div>
                 <Modal
                     open={loginVisible}
                     onOk={handleLogin}

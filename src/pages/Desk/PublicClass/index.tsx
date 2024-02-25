@@ -43,7 +43,7 @@ function App() {
     return (
         <div>
             <div className="MobilePublicWrapper">
-                <p className="MobileTitle">2020年高参命理公益课</p>
+                <p className="MobileTitle">2020年高参老师公益课</p>
                 <List
                     size="large"
                     bordered={false}
@@ -86,7 +86,7 @@ function App() {
                     )
                 })}
             </div> */}
-                <p className="MobileTitle">2021年高参命理公益课</p>
+                <p className="MobileTitle">2021年高参老师公益课</p>
             </div>
         </div>
     );

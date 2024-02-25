@@ -2,6 +2,7 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import React, {Component, useState, useEffect} from 'react';
 import Header from './components/Head/index.tsx';
 import Footer from './components/Footer/index.tsx';
+import AppHelp from './components/AppHelp/index.tsx';
 import DeskIndex from './pages/Desk/Class/index.tsx';
 import DeskBook from './pages/Desk/Book/index.tsx';
 import DeskGrave from './pages/Desk/Grave/index.tsx';
@@ -20,6 +21,7 @@ function App() {
         <BrowserRouter>
             <div style={{minHeight: 'calc(100vh - 120px)'}}>
                 <Header></Header>
+                <AppHelp></AppHelp>
                 <Routes>
                     <Route path="/" element={<Navigate to="/home" />} />
                     <Route path="/home" element={isMobileOnly ? <MobileIndex /> : <DeskIndex />} />

@@ -1,0 +1,21 @@
+@import '../../global.scss';
+.appHelpWrapper {
+    padding: $box-padding-row;
+}
+.logo {
+    width: 60px;
+    height: 60px;
+    font-size: 27px;
+    background-color: #1a1917;
+    color: #fff;
+    font-family: serif;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    border-radius: 4px;
+    display: inline-block;
+}
+.desc {
+    margin-left: 8px;
+    display: inline-block;
+}

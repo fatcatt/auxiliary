@@ -212,7 +212,7 @@ function Header() {
                     <Space>
                         <Space style={{marginRight: '32px'}}>
                             <img src={require('../../statics/logo.jpg')} className="HeaderLogo" />
-                            <p className="HeaderTitle">{'茅山易学术数'}</p>
+                            <p className="HeaderTitle">{'问道天机'}</p>
                         </Space>
                         {menus.map((e) => {
                             return (

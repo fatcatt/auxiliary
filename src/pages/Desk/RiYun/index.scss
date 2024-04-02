@@ -1,0 +1,40 @@
+.Header {
+    background-color: #bd4d4a;
+    height: 60px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 60px;
+    text-align: center;
+}
+.Content {
+    padding: 18px 22px;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+.ContentItemBox {
+    display: flex;
+    gap: 16px;
+}
+.ContentItem {
+    background-color: #fbf4ed;
+    padding: 22px 18px;
+    flex: 1;
+    border-radius: 8px;
+    color: #bd4d4a;
+    text-align: center;
+    line-height: 1.7;
+}
+.SmallItem {
+    display: flex;
+}
+.ItemTitle {
+    font-weight: 600;
+    font-size: 18px;
+}
+.SmallText {
+    font-size: 12px;
+}
+.SmallContent {
+    flex: 1;
+}

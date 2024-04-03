@@ -1,16 +1,24 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     module:{
         rules: [
             {
                 test: /\.jsx?$/,
-                use: ['babel-loader'],
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
+                    }
+                }],
                 exclude: /node_modules/
             },
             {
                 test: /\.css$/,
-                use: ['style-loader','css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -19,10 +27,26 @@ module.exports = {
                 ]
             },
         ]
-    }，
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+        }),
+        new CleanWebpackPlugin(),
+    ],
     resolve: {
         alias: {
             @: require('path').resolve(__dirname, './')
-        }
-    }
+        },
+        extensions: ['.js', '.jsx', '.json', 'tsx'] // 常用扩展名列表
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin({
+            // TerserPlugin 配置
+        })],
+        splitChunks: {
+            chunks: 'all',
+        },
+    },
 };

@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -48,7 +49,11 @@ module.exports = {
             filename: '[name].[contenthash].css'
         }),
         new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin(),
+        new HtmlWebpackPlugin({
+            template: './public/index.html', // 指定模板文件
+            filename: 'index.html' // 输出的 HTML 文件名称
+        })
     ],
     // resolve: {
     //     alias: {

@@ -10,7 +10,9 @@ module.exports = {
     entry: './src/index.js', // 应用的入口文件
     output: {
         path: path.resolve(__dirname, 'dist'), // 输出文件的目标目录
-        filename: 'bundle.js' // 输出文件的名称
+        filename: '[name].[contenthash].js', // 输出文件名
+        clean: true, // 清理 /dist 文件夹
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -67,6 +69,18 @@ module.exports = {
             new TerserPlugin({
                 // TerserPlugin 配置
             })
-        ]
+        ],
+        splitChunks: {
+            chunks: 'all', // 对所有类型的 chunks 进行分割
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/, // 从 node_modules 目录中分割出来
+                    name: 'vendors', // 打包到 vendors 文件中
+                    chunks: 'all',
+                    priority: 20 // 优先级
+                }
+                // 可以根据需要添加更多的缓存组来进一步细分包
+            }
+        }
     }
 };

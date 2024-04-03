@@ -1,9 +1,11 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
+    mode: 'production',
     module:{
         rules: [
             {
@@ -33,6 +35,7 @@ module.exports = {
             filename: '[name].[contenthash].css',
         }),
         new CleanWebpackPlugin(),
+        new BundleAnalyzerPlugin()
     ],
     resolve: {
         alias: {

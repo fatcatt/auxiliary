@@ -1,7 +1,5 @@
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import React, {Component, useState, useEffect} from 'react';
-import Header from './components/Head/index.tsx';
-import Footer from './components/Footer/index.tsx';
 import RiYun from './pages/Desk/RiYun/index.tsx';
 import {isMobileOnly} from 'react-device-detect';
 import {List, Space} from 'antd';

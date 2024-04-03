@@ -6,7 +6,7 @@
         "@babel/core": "^7.21.8",
         "@babel/plugin-transform-runtime": "^7.21.4",
         "@babel/preset-env": "^7.21.5",
-        "@babel/preset-react": "^7.18.6",
+        "@babel/preset-react": "^7.24.1",
         "@icon-park/react": "^1.4.2",
         "@react-pdf/renderer": "^3.1.11",
         "@testing-library/jest-dom": "^5.16.5",
@@ -33,11 +33,13 @@
         "video-react": "^0.16.0",
         "web-vitals": "^2.1.4",
         "webpack": "^5.83.1",
+        "webpack-bundle-analyzer": "^4.10.1",
         "xss": "^1.0.14"
     },
     "scripts": {
         "start": "cross-env NODE_ENV=production PORT=3003 react-scripts start",
-        "build": "react-scripts build",
+        "build": "webpack --mode production",
+        "ana": "webpack --mode production",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "prd": "cross-env PORT=3003 react-scripts start"
@@ -57,6 +59,11 @@
     "proxy": "http://localhost:3002",
     "devDependencies": {
         "clean-webpack-plugin": "^4.0.0",
-        "mini-css-extract-plugin": "^2.8.1"
+        "css-loader": "^6.10.0",
+        "mini-css-extract-plugin": "^2.8.1",
+        "sass": "^1.72.0",
+        "sass-loader": "^14.1.1",
+        "style-loader": "^3.3.4",
+        "webpack-cli": "^5.1.4"
     }
 }

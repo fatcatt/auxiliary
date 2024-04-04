@@ -1,14 +1,35 @@
 import React, {useEffect, useState} from 'react';
-import {List, Button} from 'antd';
+import {List, Button, Form, Input, message, Popconfirm, Typography, Spin} from 'antd';
 import {Solar, Lunar} from 'lunar-javascript';
-import {getCapture} from '../../../api/api';
+import queryString from 'query-string';
 import {foods, communicates, suitables, toboos, GANWUXING, ZHIWUXING} from '../../../utils/riyunMap';
 import './index.scss';
 
+const {Title} = Typography;
+const {TextArea} = Input;
+const queryParams = queryString.parse(location.search);
+const solarDate = Solar.fromDate(new Date());
+const wuxing = queryParams?.type ? [queryParams.type] : ['mu', 'huo', 'tu', 'jin', 'shui'];
+const wuxingMap = {mu: '木', huo: '火', tu: '土', jin: '金', shui: '水'};
+
+const CarouselText = () => {
+    const texts = ['截图准备中，稍等片刻...', '喝点水休息一下，马上就好...', '明月几时有？把酒问青天', '"此情可待成追忆，只是当时已惘然。" ']; // 轮播的文案列表
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length); // 更新当前索引以轮播文案
+        }, 2000); // 每2秒更换一次文案
+
+        return () => clearInterval(intervalId); // 组件卸载时清除定时器
+    }, []); // 空依赖数组意味着这个effect只在组件挂载时运行一次
+
+    return <div>{texts[currentIndex]}</div>;
+};
+
 function RiYun() {
-    const solarDate = Solar.fromDate(new Date());
-    const wuxing = ['mu', 'huo', 'tu', 'jin', 'shui'];
-    const wuxingMap = {mu: '木', huo: '火', tu: '土', jin: '金', shui: '水'};
+    const [form] = Form.useForm();
+    const [riyunData, setRiyunData] = useState({mu: '', huo: '', tu: '', jin: '', shui: ''});
     const [strengthMap, setStrengthMap] = useState({
         mu: {
             use: '',
@@ -78,6 +99,7 @@ function RiYun() {
             toboos: []
         }
     });
+    const [spinning, setSpinning] = useState(false);
     var date = Lunar.fromDate(new Date());
 
     const computedStrength = (param) => {
@@ -99,7 +121,6 @@ function RiYun() {
     };
 
     function getRelation(myElement, otherElement) {
-        console.log(myElement, otherElement);
         const overcomeSequence = ['jin', 'mu', 'tu', 'shui', 'huo', 'jin'];
         const generateSequence = ['mu', 'huo', 'tu', 'jin', 'shui', 'mu'];
 
@@ -150,10 +171,19 @@ function RiYun() {
     }
 
     useEffect(() => {
+        const storedData = localStorage.getItem('riyunData');
+        console.log(storedData);
+        if (storedData) {
+            setRiyunData(JSON.parse(storedData));
+            form.setFieldsValue(JSON.parse(storedData));
+        }
+    }, []);
+
+    useEffect(() => {
         const _riyunInfo = JSON.parse(JSON.stringify(riyunInfo));
         const _strengthMap = JSON.parse(JSON.stringify(strengthMap));
         const maxStrength = computedStrength({monthGan: date.getMonthGan(), monthZhi: date.getMonthZhi(), dayGan: date.getDayGan(), dayZhi: date.getDayZhi()});
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < wuxing.length; i++) {
             const relation = getRelation(wuxing[i], maxStrength);
             _strengthMap[wuxing[i]] = relation;
             _riyunInfo[wuxing[i]]['foods']['recomList'] = selectRandomTwo(foods[relation['use']].recomList);
@@ -185,6 +215,38 @@ function RiYun() {
         // 返回两个随机选中的对象
         return [arr[indexOne], arr[indexTwo]];
     };
+    const onFinish = (values) => {
+        const storedData = JSON.parse(localStorage.getItem('riyunData') || '{}');
+        localStorage.setItem('riyunData', JSON.stringify({...storedData, ...values}));
+        message.success('保存成功，开始截图中...');
+        triggerScript();
+        setSpinning(true);
+    };
+
+    const triggerScript = async () => {
+        try {
+            const response = await fetch('http://124.221.158.62:3005/capture', {method: 'GET'});
+            const data = await response.json();
+            message.success('截图成功，请前往 http://124.221.158.62:3003/riyunimg 查看');
+        } catch (error) {
+            message.error('出错啦，联系管理员');
+            setSpinning(false);
+        }
+    };
+
+    // 表单输入处理函数
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        setRiyunData((prevState) => ({...prevState, [name]: value}));
+    };
+
+    // 清空stoarge
+    const handleClear = () => {
+        console.log('skdjflk');
+        localStorage.setItem('riyunData', JSON.stringify({}));
+        form.setFieldsValue({mu: '', huo: '', tu: '', jin: '', shui: ''});
+    };
+
     return (
         <div>
             {wuxing.map((e) => {
@@ -200,7 +262,7 @@ function RiYun() {
                                     {date.getDayGan()}
                                     {date.getDayZhi()}日 {wuxingMap[e]}日主
                                 </div>
-                                <div>甲乙木的宝子们今天积压的情绪可能会有一个小爆发，适合外出办事，放飞自我，或是灵活应对，一些难题在今天得得到解决，有压力也有动力。</div>
+                                <div>{riyunData[e]}</div>
                             </div>
                             <div className="ContentItemBox">
                                 <div className="ContentItem">
@@ -252,6 +314,50 @@ function RiYun() {
                     </div>
                 );
             })}
+            <Title level={5} style={{marginLeft: '20px', color: '#8c8c8c'}}>
+                ☕️ 请在下方更新数据
+            </Title>
+            <Spin tip={<CarouselText />} spinning={spinning}>
+                <Form
+                    form={form}
+                    name="basic"
+                    labelCol={{span: 8}}
+                    wrapperCol={{span: 16}}
+                    style={{maxWidth: 500}}
+                    initialValues={{remember: true}}
+                    onFinish={onFinish}
+                    autoComplete="off"
+                >
+                    <Form.Item label="木日主日运" name="mu">
+                        <TextArea value={riyunData.mu} onChange={handleChange} name="mu" rows={2} />
+                    </Form.Item>
+                    <Form.Item label="火日主日运：" name="huo">
+                        <TextArea value={riyunData.huo} onChange={handleChange} name="huo" rows={2} />
+                    </Form.Item>
+                    <Form.Item label="土日主日运：" name="tu">
+                        <TextArea value={riyunData.tu} onChange={handleChange} name="tu" rows={2} />
+                    </Form.Item>
+                    <Form.Item label="金日主日运：" name="jin">
+                        <TextArea value={riyunData.jin} onChange={handleChange} name="jin" rows={2} />
+                    </Form.Item>
+                    <Form.Item label="水日主日运：" name="shui">
+                        <TextArea value={riyunData.shui} onChange={handleChange} name="shui" rows={2} />
+                    </Form.Item>
+                    <Form.Item
+                        wrapperCol={{
+                            offset: 8,
+                            span: 16
+                        }}
+                    >
+                        <Button type="primary" htmlType="submit">
+                            保存+截图
+                        </Button>
+                        <Popconfirm title="清理所有日运" description="清理所有日运嘛？" onConfirm={handleClear} okText="Yes" cancelText="No">
+                            <Button style={{marginLeft: '8px'}}>清空</Button>
+                        </Popconfirm>
+                    </Form.Item>
+                </Form>
+            </Spin>
         </div>
     );
 }

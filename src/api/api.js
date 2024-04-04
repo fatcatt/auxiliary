@@ -48,3 +48,6 @@ export const loginVerified = (params) => {
 export const launchRegister = (params) => {
     return axios.post(`/api/register`, params).then((res) => res.data);
 };
+export const getCapture = () => {
+    return axios.get(`/api/capture`).then((res) => res.data);
+};

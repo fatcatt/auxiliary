@@ -282,13 +282,14 @@ function RiYun() {
                             {date.getDayZhi()}日
                         </div>
                         <div className="Content">
-                            <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
+                            <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`], marginBottom: '0'}}>
                                 <div className="ItemTitle">
                                     {date.getDayGan()}
                                     {date.getDayZhi()}日 {wuxingMap[e]}日主
                                 </div>
                                 <div>{riyunData[e]}</div>
                             </div>
+                            <div className="shuiyin">@小高碎碎念</div>
                             <div className="ContentItemBox">
                                 <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">今日美食</div>

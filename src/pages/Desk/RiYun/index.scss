@@ -1,6 +1,6 @@
 .riyun {
     width: 520px;
-    font-size: 20px;
+    font-size: 18px;
 }
 .Header {
     // background-color: #bd4d4a;
@@ -13,7 +13,6 @@
 .Content {
     padding: 16px 22px;
     display: flex;
-    gap: 16px;
     flex-direction: column;
 }
 .ContentItemBox {
@@ -22,7 +21,7 @@
 }
 .ItemTitle {
     font-weight: 600;
-    font-size: 30px;
+    font-size: 24px;
     margin-bottom: 14px;
 }
 .ContentItem {
@@ -32,6 +31,7 @@
     border-radius: 8px;
     text-align: center;
     line-height: 1.7;
+    margin-bottom: 16px;
 }
 .ContentItemBox:last-child {
     .ContentItem {
@@ -43,7 +43,7 @@
     }
     .ItemTitle {
         font-weight: 600;
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 2px;
     }
 }
@@ -51,11 +51,16 @@
     display: flex;
 }
 .SmallText {
-    font-size: 16px;
+    font-size: 14px;
 }
 .SmallContent {
     flex: 1;
 }
 .SmallTextParent {
     font-weight: bold;
+}
+.shuiyin {
+    font-size: 12px;
+    color: #c0c5db;
+    text-align: center;
 }

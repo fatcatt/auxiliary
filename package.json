@@ -16,6 +16,7 @@
         "babel-eslint": "^10.1.0",
         "babel-loader": "^9.1.2",
         "cross-env": "^7.0.3",
+        "file-loader": "^6.2.0",
         "jsonwebtoken": "^9.0.0",
         "lunar-javascript": "^1.6.12",
         "mysql": "^2.18.1",

@@ -292,13 +292,13 @@ function RiYun() {
                             <div className="ContentItemBox">
                                 <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">今日美食</div>
-                                    <div>今日运势大吉•可造</div>
+                                    {/* <div>今日运势大吉•可造</div> */}
                                     <div>推荐：{riyunInfo[e].foods.recomList}</div>
                                     <div>功效：{riyunInfo[e].foods.effectList}</div>
                                 </div>
                                 <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">沟通指南</div>
-                                    <div>今日运势大吉•可造 </div>
+                                    {/* <div>今日运势大吉•可造 </div> */}
                                     <div>{riyunInfo[e].communicates.split('、')[0]}</div>
                                     <div>{riyunInfo[e].communicates.split('、')[1]}</div>
                                 </div>
@@ -308,12 +308,12 @@ function RiYun() {
                                     <div className="ItemTitle">今日适宜</div>
                                     <div className="SmallItem">
                                         <div className="SmallContent">
-                                            <div>{riyunInfo[e].suitables[0]?.recommend}</div>
+                                            <div className="SmallTextParent">{riyunInfo[e].suitables[0]?.recommend}</div>
                                             <div className="SmallText">{riyunInfo[e].suitables[0]?.effectList[0]}</div>
                                             <div className="SmallText">{riyunInfo[e].suitables[0]?.effectList[1]}</div>
                                         </div>
                                         <div className="SmallContent">
-                                            <div>{riyunInfo[e]?.suitables?.[1]?.recommend}</div>
+                                            <div className="SmallTextParent">{riyunInfo[e]?.suitables?.[1]?.recommend}</div>
                                             <div className="SmallText">{riyunInfo[e].suitables?.[1]?.effectList[0]}</div>
                                             <div className="SmallText">{riyunInfo[e].suitables?.[1]?.effectList[1]}</div>
                                         </div>
@@ -323,12 +323,12 @@ function RiYun() {
                                     <div className="ItemTitle">今日忌讳</div>
                                     <div className="SmallItem">
                                         <div className="SmallContent">
-                                            <div>{riyunInfo[e].toboos[0]?.recommend}</div>
+                                            <div className="SmallTextParent">{riyunInfo[e].toboos[0]?.recommend}</div>
                                             <div className="SmallText">{riyunInfo[e].toboos?.[0]?.effectList[0]}</div>
                                             <div className="SmallText">{riyunInfo[e].toboos?.[0]?.effectList[1]}</div>
                                         </div>
                                         <div className="SmallContent">
-                                            <div>{riyunInfo[e].toboos[1]?.recommend}</div>
+                                            <div className="SmallTextParent">{riyunInfo[e].toboos[1]?.recommend}</div>
                                             <div className="SmallText">{riyunInfo[e].toboos?.[1]?.effectList[0]}</div>
                                             <div className="SmallText">{riyunInfo[e].toboos?.[1]?.effectList[1]}</div>
                                         </div>
@@ -354,19 +354,19 @@ function RiYun() {
                     autoComplete="off"
                 >
                     <Form.Item label="木日主日运" name="mu">
-                        <TextArea value={riyunData.mu} onChange={handleChange} name="mu" rows={2} />
+                        <TextArea value={riyunData.mu} onChange={handleChange} name="mu" rows={3} />
                     </Form.Item>
                     <Form.Item label="火日主日运：" name="huo">
-                        <TextArea value={riyunData.huo} onChange={handleChange} name="huo" rows={2} />
+                        <TextArea value={riyunData.huo} onChange={handleChange} name="huo" rows={3} />
                     </Form.Item>
                     <Form.Item label="土日主日运：" name="tu">
-                        <TextArea value={riyunData.tu} onChange={handleChange} name="tu" rows={2} />
+                        <TextArea value={riyunData.tu} onChange={handleChange} name="tu" rows={3} />
                     </Form.Item>
                     <Form.Item label="金日主日运：" name="jin">
-                        <TextArea value={riyunData.jin} onChange={handleChange} name="jin" rows={2} />
+                        <TextArea value={riyunData.jin} onChange={handleChange} name="jin" rows={3} />
                     </Form.Item>
                     <Form.Item label="水日主日运：" name="shui">
-                        <TextArea value={riyunData.shui} onChange={handleChange} name="shui" rows={2} />
+                        <TextArea value={riyunData.shui} onChange={handleChange} name="shui" rows={3} />
                     </Form.Item>
                     <Form.Item
                         wrapperCol={{

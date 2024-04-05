@@ -49,8 +49,8 @@ export const launchRegister = (params) => {
     return axios.post(`/api/register`, params).then((res) => res.data);
 };
 export const updateRiYun = (params) => {
-    return axios.post(`http://124.221.158.62:3002/api/riyun_update`, params).then((res) => res.data);
+    return axios.post(`api/riyun_update`, params).then((res) => res.data);
 };
 export const getRiYun = () => {
-    return axios.get(`http://124.221.158.62:3002/api/riyun_get`).then((res) => res.data);
+    return axios.get(`/api/riyun_get`).then((res) => res.data);
 };

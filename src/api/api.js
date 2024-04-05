@@ -52,5 +52,5 @@ export const updateRiYun = (params) => {
     return axios.post(`/api/riyun_update`, params).then((res) => res.data);
 };
 export const getRiYun = () => {
-    return axios.get(`/api/riyun`).then((res) => res.data);
+    return axios.get(`/api/riyun_get`).then((res) => res.data);
 };

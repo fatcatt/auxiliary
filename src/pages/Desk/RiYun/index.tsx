@@ -172,14 +172,14 @@ function RiYun() {
     }
 
     useEffect(() => {
-        // getRiYun()
-        //     .then((res) => {
-        //         setRiyunData(res.data);
-        //         form.setFieldsValue(res.data);
-        //     })
-        //     .catch((e) => {
-        //         setSpinning(true);
-        //     });
+        getRiYun()
+            .then((res) => {
+                setRiyunData(res.data);
+                form.setFieldsValue(res.data);
+            })
+            .catch((e) => {
+                setSpinning(true);
+            });
     }, []);
 
     useEffect(() => {

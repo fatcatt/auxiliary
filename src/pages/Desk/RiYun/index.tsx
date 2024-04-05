@@ -118,6 +118,7 @@ function RiYun() {
         for (let [key, value] of Object.entries(ZHIWUXING.get(dayZhi))) {
             tem[key] = tem[key] + value;
         }
+        console.log(tem);
         return Object.keys(tem).reduce((a, b) => (tem[a] >= tem[b] ? a : b));
     };
 

@@ -6,6 +6,18 @@ import {updateRiYun, getRiYun} from '../../../api/api';
 import {foods, communicates, suitables, toboos, GANWUXING, ZHIWUXING} from '../../../utils/riyunMap';
 import './index.scss';
 
+const COLOR = {
+    mainmu: '#8aa54f',
+    submu: '#f2fcf1',
+    maintu: '#754a2a',
+    subtu: '#faf2e6',
+    mainhuo: '#bd4d4a',
+    subhuo: '#fbf4ed',
+    mainjin: '#edbe4a',
+    subjin: '#fef7ed',
+    mainshui: '#3e73b1',
+    subshui: '#f4faff'
+};
 const {Title} = Typography;
 const {TextArea} = Input;
 const queryParams = queryString.parse(location.search);
@@ -265,12 +277,12 @@ function RiYun() {
             {wuxing.map((e) => {
                 return (
                     <div className="riyun" id={e} key={e}>
-                        <div className="Header">
+                        <div className="Header" style={{backgroundColor: COLOR[`main${e}`]}}>
                             {solarDate.getMonth()}月{solarDate.getDay()}日 · 周{solarDate.getWeekInChinese()} · {date.getDayGan()}
                             {date.getDayZhi()}日
                         </div>
                         <div className="Content">
-                            <div className="ContentItem">
+                            <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                 <div className="ItemTitle">
                                     {date.getDayGan()}
                                     {date.getDayZhi()}日 {wuxingMap[e]}日主
@@ -278,13 +290,13 @@ function RiYun() {
                                 <div>{riyunData[e]}</div>
                             </div>
                             <div className="ContentItemBox">
-                                <div className="ContentItem">
+                                <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">今日美食</div>
                                     <div>今日运势大吉•可造</div>
                                     <div>推荐：{riyunInfo[e].foods.recomList}</div>
                                     <div>功效：{riyunInfo[e].foods.effectList}</div>
                                 </div>
-                                <div className="ContentItem">
+                                <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">沟通指南</div>
                                     <div>今日运势大吉•可造 </div>
                                     <div>{riyunInfo[e].communicates.split('、')[0]}</div>
@@ -292,7 +304,7 @@ function RiYun() {
                                 </div>
                             </div>
                             <div className="ContentItemBox">
-                                <div className="ContentItem">
+                                <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">今日适宜</div>
                                     <div className="SmallItem">
                                         <div className="SmallContent">
@@ -307,7 +319,7 @@ function RiYun() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="ContentItem">
+                                <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">今日忌讳</div>
                                     <div className="SmallItem">
                                         <div className="SmallContent">

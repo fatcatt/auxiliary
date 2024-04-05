@@ -177,9 +177,7 @@ function RiYun() {
                 setRiyunData(res.data);
                 form.setFieldsValue(res.data);
             })
-            .catch((e) => {
-                setSpinning(true);
-            });
+            .catch((e) => {});
     }, []);
 
     useEffect(() => {
@@ -228,7 +226,7 @@ function RiYun() {
                 triggerScript();
             })
             .catch((e) => {
-                setSpinning(true);
+                setSpinning(false);
             });
     };
 

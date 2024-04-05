@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {List, Button, Form, Input, message, Popconfirm, Typography, Spin} from 'antd';
 import {Solar, Lunar} from 'lunar-javascript';
 import queryString from 'query-string';
+import {updateRiYun, getRiYun} from '../../../api/api';
 import {foods, communicates, suitables, toboos, GANWUXING, ZHIWUXING} from '../../../utils/riyunMap';
 import './index.scss';
 
@@ -171,11 +172,15 @@ function RiYun() {
     }
 
     useEffect(() => {
-        const storedData = localStorage.getItem('riyunData');
-        console.log(storedData);
-        if (storedData) {
-            setRiyunData(JSON.parse(storedData));
-            form.setFieldsValue(JSON.parse(storedData));
+        if (wuxing.length === 1) {
+            getRiYun()
+                .then((res) => {
+                    setRiyunData(res.data);
+                    form.setFieldsValue(res.data);
+                })
+                .catch((e) => {
+                    setSpinning(true);
+                });
         }
     }, []);
 
@@ -216,11 +221,17 @@ function RiYun() {
         return [arr[indexOne], arr[indexTwo]];
     };
     const onFinish = (values) => {
-        const storedData = JSON.parse(localStorage.getItem('riyunData') || '{}');
-        localStorage.setItem('riyunData', JSON.stringify({...storedData, ...values}));
-        message.success('保存成功，开始截图中...');
-        triggerScript();
+        // const storedData = JSON.parse(localStorage.getItem('riyunData') || '{}');
+        // localStorage.setItem('riyunData', JSON.stringify({...storedData, ...values}));
         setSpinning(true);
+        updateRiYun(values)
+            .then((res) => {
+                message.success('保存成功，开始截图中...');
+                triggerScript();
+            })
+            .catch((e) => {
+                setSpinning(true);
+            });
     };
 
     const triggerScript = async () => {
@@ -228,6 +239,7 @@ function RiYun() {
             const response = await fetch('http://124.221.158.62:3005/capture', {method: 'GET'});
             const data = await response.json();
             message.success('截图成功，请前往 http://124.221.158.62:3003/riyunimg 查看');
+            setSpinning(false);
         } catch (error) {
             message.error('出错啦，联系管理员');
             setSpinning(false);

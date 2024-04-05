@@ -48,6 +48,9 @@ export const loginVerified = (params) => {
 export const launchRegister = (params) => {
     return axios.post(`/api/register`, params).then((res) => res.data);
 };
-export const getCapture = () => {
-    return axios.get(`/api/capture`).then((res) => res.data);
+export const updateRiYun = (params) => {
+    return axios.post(`/api/riyun_update`, params).then((res) => res.data);
+};
+export const getRiYun = () => {
+    return axios.get(`/api/riyun`).then((res) => res.data);
 };

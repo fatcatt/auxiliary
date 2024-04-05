@@ -10,6 +10,8 @@ var usersRouter = require('./routes/users');
 var messageRouter = require('./routes/message');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
+var riyunRouter = require('./routes/riyun_update');
+var getriyunRouter = require('./routes/riyun_get');
 const auth = require('./routes/authorization');
 
 var app = express();
@@ -22,13 +24,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/message', messageRouter);
+app.use('/riyun_update', riyunRouter);
+app.use('/riyun_get', getriyunRouter);
 app.use('/*', auth.verifyToken);
 
 // catch 404 and forward to error handler

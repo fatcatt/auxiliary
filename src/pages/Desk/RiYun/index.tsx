@@ -172,16 +172,14 @@ function RiYun() {
     }
 
     useEffect(() => {
-        if (wuxing.length === 1) {
-            getRiYun()
-                .then((res) => {
-                    setRiyunData(res.data);
-                    form.setFieldsValue(res.data);
-                })
-                .catch((e) => {
-                    setSpinning(true);
-                });
-        }
+        getRiYun()
+            .then((res) => {
+                setRiyunData(res.data);
+                form.setFieldsValue(res.data);
+            })
+            .catch((e) => {
+                setSpinning(true);
+            });
     }, []);
 
     useEffect(() => {
@@ -254,9 +252,13 @@ function RiYun() {
 
     // 清空stoarge
     const handleClear = () => {
-        console.log('skdjflk');
-        localStorage.setItem('riyunData', JSON.stringify({}));
-        form.setFieldsValue({mu: '', huo: '', tu: '', jin: '', shui: ''});
+        updateRiYun({mu: '', huo: '', tu: '', jin: '', shui: ''})
+            .then((res) => {
+                message.success('已清空～');
+            })
+            .catch((e) => {
+                setSpinning(true);
+            });
     };
 
     return (

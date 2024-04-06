@@ -27,7 +27,7 @@ const communicates = [
     '任务完成·下班',
     '一言不合就开会',
     '碰壁了，求支援',
-    '给我3分钟，展现真技术',
+    '给我3分钟, 展现真技术',
     '别急，我正在加速',
     '全员冲刺，目标看齐',
     '拒绝虚假，我来实锤',
@@ -70,6 +70,50 @@ const suitables = {
         {
             recommend: '练习太极',
             effectList: ['身心平衡', '增强体魄']
+        },
+        {
+            recommend: '户外活动',
+            effectList: ['享受大自然', '放松心情']
+        },
+        {
+            recommend: '团队建设',
+            effectList: ['增强团队', '合作精神']
+        },
+        {
+            recommend: '健康检查',
+            effectList: ['关注身体健康', '预防疾病']
+        },
+        {
+            recommend: '体育锻炼',
+            effectList: ['增强体质', '释放压力']
+        },
+        {
+            recommend: '整理规划',
+            effectList: ['提升效率', '完成棘手任务']
+        },
+        {
+            recommend: '细致复盘',
+            effectList: ['确保每一个细节', '得到充分准备']
+        },
+        {
+            recommend: '目标规划',
+            effectList: ['清晰的目标', '有效完成任务']
+        },
+        {
+            recommend: '瑜伽练习',
+            effectList: ['提高柔韧', '心灵平和']
+        },
+        {
+            recommend: '园艺活动',
+            effectList: ['亲近土地', '减压养心']
+        },
+        {
+            recommend: '烹饪美食',
+            effectList: ['享受美味', '增进家庭和睦']
+        },
+        {
+            recommend: '收集标本',
+            effectList: ['增长见识', '锻炼观察能力']
         }
     ],
     huo: [
@@ -94,8 +138,28 @@ const suitables = {
             effectList: ['补充维D', '增强骨骼']
         },
         {
+            recommend: '情感交流',
+            effectList: ['让每一次相遇', '都成为美好的经历']
+        },
+        {
             recommend: '品茗赏茶',
             effectList: ['提神醒脑', '享受生活']
+        },
+        {
+            recommend: '创新探求',
+            effectList: ['发挥想象力', '探索应对之道']
+        },
+        {
+            recommend: '交流探讨',
+            effectList: ['与同行交流心得', '相互学习进步']
+        },
+        {
+            recommend: '志愿服务',
+            effectList: ['奉献爱心', '体验助人之乐']
+        },
+        {
+            recommend: '积极表现',
+            effectList: ['创意和想法', '易得到支持']
         }
     ],
     tu: [
@@ -122,6 +186,10 @@ const suitables = {
         {
             recommend: '种植蔬菜',
             effectList: ['享受收获', '健康饮食']
+        },
+        {
+            recommend: '家庭团聚',
+            effectList: ['共度愉快时光', '增进亲情']
         }
     ],
     jin: [
@@ -148,6 +216,22 @@ const suitables = {
         {
             recommend: '练习吹奏乐器',
             effectList: ['呼吸控制', '艺术享受']
+        },
+        {
+            recommend: '探索',
+            effectList: ['尝试新鲜事物', '拓展视野']
+        },
+        {
+            recommend: '技能训练',
+            effectList: ['提升专业水准', '占据竞争优势']
+        },
+        {
+            recommend: '新挑战',
+            effectList: ['促进个人成长', '助力职业发展']
+        },
+        {
+            recommend: '尝试新事物',
+            effectList: ['为生活', '添上一件新体验']
         }
     ],
     shui: [
@@ -172,8 +256,20 @@ const suitables = {
             effectList: ['身体放松', '美容养颜']
         },
         {
+            recommend: '水疗SPA',
+            effectList: ['拓展知识领域', '提升专业技能']
+        },
+        {
             recommend: '观赏鱼缸',
             effectList: ['视觉享受', '心情平和']
+        },
+        {
+            recommend: '理财规划',
+            effectList: ['合理分配', '为未来做好准备']
+        },
+        {
+            recommend: '练习呼吸法',
+            effectList: ['肺部锻炼', '气血流通']
         }
     ]
 };
@@ -215,6 +311,14 @@ const toboos = {
         {
             recommend: '表白',
             effectList: ['注意情绪波动大', '导致反而疏远']
+        },
+        {
+            recommend: '固步自封',
+            effectList: ['勇于尝试', '看看新的方法！']
+        },
+        {
+            recommend: '过度工作',
+            effectList: ['肝气郁滞', '站起来活动活动']
         }
     ],
     huo: [
@@ -241,6 +345,22 @@ const toboos = {
         {
             recommend: '情绪压抑',
             effectList: ['内心烦躁', '影响身心健康']
+        },
+        {
+            recommend: '轻信他人',
+            effectList: ['警惕', '可能存在小人']
+        },
+        {
+            recommend: '强行谈判',
+            effectList: ['改日再谈', '会有更好的结果']
+        },
+        {
+            recommend: '刷淘宝',
+            effectList: ['避免不必要的开支', '节约大使！']
+        },
+        {
+            recommend: '牢骚大侠',
+            effectList: ['拒绝负能量', '提升合作氛围']
         }
     ],
     tu: [
@@ -275,6 +395,30 @@ const toboos = {
         {
             recommend: '忽略家庭',
             effectList: ['记得注重归属', '提防关系变得疏远']
+        },
+        {
+            recommend: '冷战',
+            effectList: ['不要冷战', '沟通障碍加剧']
+        },
+        {
+            recommend: '刷淘宝',
+            effectList: ['避免不必要的开支', '节约大使！']
+        },
+        {
+            recommend: '目光无人',
+            effectList: ['倾听他人意见', '有助于完善计划']
+        },
+        {
+            recommend: '贪食碳水',
+            effectList: ['小心腹胀～', '合理膳食']
+        },
+        {
+            recommend: '过度依赖',
+            effectList: ['打起精神', '应对困难的能力']
+        },
+        {
+            recommend: '避免',
+            effectList: ['注意工作效率', '方可早点下班']
         }
     ],
     jin: [
@@ -301,6 +445,26 @@ const toboos = {
         {
             recommend: '忽视身体',
             effectList: ['注意忙碌', '易生呼吸系统疾病']
+        },
+        {
+            recommend: '忽略细节',
+            effectList: ['避免因小失误', '影响结果']
+        },
+        {
+            recommend: '高调行事',
+            effectList: ['保持低调', '避免不必要麻']
+        },
+        {
+            recommend: '固执己见',
+            effectList: ['保持谦逊', '避免过于傲气']
+        },
+        {
+            recommend: '过度依赖',
+            effectList: ['打起精神', '应对困难的能力']
+        },
+        {
+            recommend: '拖延症',
+            effectList: ['注意工作效率', '方可早点下班']
         }
     ],
     shui: [
@@ -323,6 +487,18 @@ const toboos = {
         {
             recommend: '逃避问题',
             effectList: ['面对困难需勇气', '逃避不是解决之道']
+        },
+        {
+            recommend: '畅所欲言',
+            effectList: ['避免沟通不畅', '而错失机会']
+        },
+        {
+            recommend: '贪食冷饮',
+            effectList: ['脾胃虚寒', '要做逃冰！']
+        },
+        {
+            recommend: '消息情绪',
+            effectList: ['影响心情', '影响决策']
         }
     ]
 };

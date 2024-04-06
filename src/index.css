@@ -16,7 +16,7 @@ code {
 }
 @font-face {
     font-family: 'Fangzheng';
-    src: url('./statics/fonts/fangzheng.woff') format('woff'), url('./statics/fonts/fangzheng.woff2') format('woff2');
+    src: url('./statics/fonts/fangzheng.TTF');
     font-weight: normal;
     font-style: normal;
 }

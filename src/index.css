@@ -16,13 +16,19 @@ code {
 }
 @font-face {
     font-family: 'Fangzheng';
-    src: url('./statics/fonts/fangzheng.TTF');
+    src: url('./statics/fonts/fangzheng.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-/* @font-face {
+.fangzheng {
+    font-family: 'Fangzheng';
+}
+@font-face {
     font-family: 'MiSans';
-    src: url('./statics/fonts/MiSans.woff') format('woff'), url('./statics/fonts/MiSans.woff2') format('woff2');
+    src: url('./statics/fonts/MiSans-Semibold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-} */
+}
+.misans {
+    font-family: 'MiSans';
+}

@@ -278,7 +278,7 @@ function RiYun() {
                 return (
                     <div className="riyun" id={e} key={e}>
                         <div className="Header" style={{backgroundColor: COLOR[`main${e}`]}}>
-                            {solarDate.getMonth()}月{solarDate.getDay()}日 · 周{solarDate.getWeekInChinese()} · {date.getDayGan()}
+                            {solarDate.getMonth()}月{solarDate.getDay()}日·周{solarDate.getWeekInChinese()}·{date.getDayGan()}
                             {date.getDayZhi()}日
                         </div>
                         <div className="Content">

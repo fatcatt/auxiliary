@@ -16,7 +16,7 @@ code {
 }
 @font-face {
     font-family: 'Fangzheng';
-    src: url('./statics/fonts/.font-spider/fangzheng.ttf') format('truetype');
+    src: url('./statics/fonts/fangzheng.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -25,7 +25,7 @@ code {
 }
 @font-face {
     font-family: 'MiSans';
-    src: url('./statics/fonts/.font-spider/MiSans-Semibold.ttf') format('truetype');
+    src: url('./statics/fonts/MiSans-Semibold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

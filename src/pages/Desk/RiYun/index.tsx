@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import {updateRiYun, getRiYun} from '../../../api/api';
 import {foods, communicates, suitables, toboos, GANWUXING, ZHIWUXING} from '../../../utils/riyunMap';
 import './index.scss';
+import '../../../index.css';
 
 const COLOR = {
     mainmu: '#8aa54f',
@@ -277,7 +278,7 @@ function RiYun() {
             {wuxing.map((e) => {
                 return (
                     <div className="riyun" id={e} key={e}>
-                        <div className="Header" style={{backgroundColor: COLOR[`main${e}`]}}>
+                        <div className="Header fangzheng" style={{backgroundColor: COLOR[`main${e}`]}}>
                             {solarDate.getMonth()}月{solarDate.getDay()}日·周{solarDate.getWeekInChinese()}·{date.getDayGan()}
                             {date.getDayZhi()}日
                         </div>

@@ -2,7 +2,7 @@
 const foods = {
     mu: {
         recomList: ['青菜', '菠菜', '韭菜', '苹果', '绿豆', '葡萄', '梨', '西兰花', '绿茶', '小麦', '香蕉', '芹菜'],
-        effectList: ['养肝', '明目', '疏风', '活血', '解毒']
+        effectList: ['养生', '明目', '疏风', '促进循环', '净化体内']
     },
     huo: {
         recomList: ['红豆', '胡萝卜', '番茄', '红枣', '草莓', '红辣椒', '樱桃', '红心火龙果', '枸杞', '西红柿', '桃子', '辣椒'],
@@ -10,15 +10,15 @@ const foods = {
     },
     tu: {
         recomList: ['土豆', '南瓜', '芋头', '黄豆', '玉米', '红薯', '花生', '大麦', '小米', '莲藕', '板栗', '香菇'],
-        effectList: ['健脾', '补中', '养血', '和胃', '除湿']
+        effectList: ['健脾', '补中', '养血', '和胃', '调节湿度']
     },
     jin: {
         recomList: ['白菜', '大白菜', '萝卜', '梨', '百合', '银耳', '白木耳', '莲子', '冬瓜', '大蒜', '洋葱', '菜花'],
-        effectList: ['润肺', '清热', '宣肺气', '降火', '排毒']
+        effectList: ['润肺', '清热', '宣肺气', '降火', '净化']
     },
     shui: {
         recomList: ['黑豆', '黑米', '黑芝麻', '海带', '海苔', '紫菜', '黑木耳', '桑葚', '蓝莓', '水蜜桃', '黑莓', '龙眼'],
-        effectList: ['养肾', '滋阴', '排毒', '润燥', '强身']
+        effectList: ['养肾', '滋阴', '净化', '润养', '强身']
     }
 };
 // 沟通指南
@@ -41,7 +41,7 @@ const communicates = [
     '目标明确',
     '决策驱动',
     '节约时刻',
-    '创意无限',
+    '创意丰富',
     '快速响应'
 ];
 // 今日适宜
@@ -53,7 +53,7 @@ const suitables = {
         },
         {
             recommend: '做眼保健操',
-            effectList: ['护眼大使', '休息一刻']
+            effectList: ['养目大使', '休息一刻']
         },
         {
             recommend: '练习书法',
@@ -136,10 +136,6 @@ const suitables = {
         {
             recommend: '晒太阳',
             effectList: ['补充维D', '增强骨骼']
-        },
-        {
-            recommend: '情感交流',
-            effectList: ['让每一次相遇', '都成为美好的经历']
         },
         {
             recommend: '品茗赏茶',
@@ -253,11 +249,7 @@ const suitables = {
         },
         {
             recommend: '水疗SPA',
-            effectList: ['身体放松', '美容养颜']
-        },
-        {
-            recommend: '水疗SPA',
-            effectList: ['拓展知识领域', '提升专业技能']
+            effectList: ['身体放松', '驻颜养颜']
         },
         {
             recommend: '观赏鱼缸',
@@ -298,7 +290,7 @@ const toboos = {
         },
         {
             recommend: '冷食冷饮',
-            effectList: ['伤及脾胃', '导致消化不良']
+            effectList: ['伤及脾胃', '导致肠胃不适']
         },
         {
             recommend: '搬家',
@@ -310,7 +302,7 @@ const toboos = {
         },
         {
             recommend: '表白',
-            effectList: ['注意情绪波动大', '导致反而疏远']
+            effectList: ['可能因情绪波动大', '导致关系反而疏远']
         },
         {
             recommend: '固步自封',
@@ -366,19 +358,19 @@ const toboos = {
     tu: [
         {
             recommend: '贪吃零食',
-            effectList: ['伤害脾胃', '导致消化不良']
+            effectList: ['伤害脾胃', '导致肠胃不适']
         },
         {
             recommend: '久坐不动',
             effectList: ['气血不畅', '增加体重负担']
         },
         {
-            recommend: '过度节食',
+            recommend: '过度节粮',
             effectList: ['营养不足', '身体虚弱']
         },
         {
             recommend: '拖延病情',
-            effectList: ['错过治疗时机', '病情加重']
+            effectList: ['错过调养时机', '病情加重']
         },
         {
             recommend: '忽视家人',
@@ -440,7 +432,7 @@ const toboos = {
         },
         {
             recommend: '过度整理',
-            effectList: ['追求完美累积压力', '反而忽略生活乐趣']
+            effectList: ['追求完满累积压力', '反而忽略生活乐趣']
         },
         {
             recommend: '忽视身体',
@@ -486,7 +478,7 @@ const toboos = {
         },
         {
             recommend: '逃避问题',
-            effectList: ['面对困难需勇气', '逃避不是解决之道']
+            effectList: ['面对困难需勇气', '逃避不是应对之策']
         },
         {
             recommend: '畅所欲言',

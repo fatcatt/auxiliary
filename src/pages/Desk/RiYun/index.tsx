@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {List, Button, Form, Input, message, Popconfirm, Typography, Spin} from 'antd';
+import {List, Button, Form, Input, message, Popconfirm, Typography, Spin, DatePicker} from 'antd';
 import {Solar, Lunar} from 'lunar-javascript';
 import queryString from 'query-string';
+import {isMobileOnly} from 'react-device-detect';
+import 'dayjs/locale/zh-cn';
+import dayjs from 'dayjs';
 import {updateRiYun, getRiYun} from '../../../api/api';
 import {foods, communicates, suitables, toboos, GANWUXING, ZHIWUXING} from '../../../utils/riyunMap';
 import './index.scss';
@@ -21,7 +24,6 @@ const COLOR = {
 const {Title} = Typography;
 const {TextArea} = Input;
 const queryParams = queryString.parse(location.search);
-const solarDate = Solar.fromDate(new Date());
 const wuxing = queryParams?.type ? [queryParams.type] : ['mu', 'huo', 'tu', 'jin', 'shui'];
 const wuxingMap = {mu: '木', huo: '火', tu: '土', jin: '金', shui: '水'};
 
@@ -113,7 +115,9 @@ function RiYun() {
         }
     });
     const [spinning, setSpinning] = useState(false);
-    var date = Lunar.fromDate(new Date());
+    const [riyunDate, setRiyunDate] = useState(dayjs());
+    const [lunar, setLunar] = useState(Lunar.fromDate(riyunDate.toDate()));
+    const [solarDate, setSolarDate] = useState(Solar.fromDate(new Date()));
 
     const computedStrength = (param) => {
         const tem = {mu: 0, huo: 0, tu: 0, jin: 0, shui: 0};
@@ -130,7 +134,6 @@ function RiYun() {
         for (let [key, value] of Object.entries(ZHIWUXING.get(dayZhi))) {
             tem[key] = tem[key] + value;
         }
-        console.log(tem);
         return Object.keys(tem).reduce((a, b) => (tem[a] >= tem[b] ? a : b));
     };
 
@@ -187,8 +190,12 @@ function RiYun() {
     useEffect(() => {
         getRiYun()
             .then((res) => {
+                const dayjsDate = dayjs(res.data.dates);
                 setRiyunData(res.data);
-                form.setFieldsValue(res.data);
+                setRiyunDate(dayjsDate);
+                setLunar(Lunar.fromDate(dayjsDate.toDate()));
+                setSolarDate(Lunar.fromDate(dayjsDate.toDate()).getSolar());
+                form.setFieldsValue({...res.data, dates: dayjsDate});
             })
             .catch((e) => {});
     }, []);
@@ -196,7 +203,7 @@ function RiYun() {
     useEffect(() => {
         const _riyunInfo = JSON.parse(JSON.stringify(riyunInfo));
         const _strengthMap = JSON.parse(JSON.stringify(strengthMap));
-        const maxStrength = computedStrength({monthGan: date.getMonthGan(), monthZhi: date.getMonthZhi(), dayGan: date.getDayGan(), dayZhi: date.getDayZhi()});
+        const maxStrength = computedStrength({monthGan: lunar.getMonthGan(), monthZhi: lunar.getMonthZhi(), dayGan: lunar.getDayGan(), dayZhi: lunar.getDayZhi()});
         for (let i = 0; i < wuxing.length; i++) {
             const relation = getRelation(wuxing[i], maxStrength);
             _strengthMap[wuxing[i]] = relation;
@@ -230,10 +237,9 @@ function RiYun() {
         return [arr[indexOne], arr[indexTwo]];
     };
     const onFinish = (values) => {
-        // const storedData = JSON.parse(localStorage.getItem('riyunData') || '{}');
-        // localStorage.setItem('riyunData', JSON.stringify({...storedData, ...values}));
         setSpinning(true);
-        updateRiYun(values)
+        let _values = {...values, dates: riyunDate};
+        updateRiYun(_values)
             .then((res) => {
                 message.success('保存成功，开始截图中...');
                 triggerScript();
@@ -272,20 +278,27 @@ function RiYun() {
             });
     };
 
+    const onChangeDate = (value) => {
+        setRiyunDate(value);
+        const lunar = Lunar.fromDate(value.toDate());
+        setLunar(lunar);
+        setSolarDate(lunar.getSolar());
+    };
+
     return (
         <div>
             {wuxing.map((e) => {
                 return (
                     <div className="riyun" id={e} key={e}>
                         <div className="Header" style={{backgroundColor: COLOR[`main${e}`]}}>
-                            {solarDate.getMonth()}月{solarDate.getDay()}日·周{solarDate.getWeekInChinese()}·{date.getDayGan()}
-                            {date.getDayZhi()}日
+                            {solarDate.getMonth()}月{solarDate.getDay()}日·周{solarDate.getWeekInChinese()}·{lunar.getDayGan()}
+                            {lunar.getDayZhi()}日
                         </div>
                         <div className="Content">
                             <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`], marginBottom: '0'}}>
                                 <div className="ItemTitle">
-                                    {date.getDayGan()}
-                                    {date.getDayZhi()}日 {wuxingMap[e]}日主
+                                    {lunar.getDayGan()}
+                                    {lunar.getDayZhi()}日 {wuxingMap[e]}日主
                                 </div>
                                 <div>{riyunData[e]}</div>
                             </div>
@@ -349,11 +362,20 @@ function RiYun() {
                     name="basic"
                     labelCol={{span: 8}}
                     wrapperCol={{span: 16}}
-                    style={{maxWidth: 500}}
+                    style={{maxWidth: 500, marginLeft: isMobileOnly ? '20px' : 0}}
                     initialValues={{remember: true}}
                     onFinish={onFinish}
                     autoComplete="off"
                 >
+                    <Form.Item label="时间(默认当天)" name="dates">
+                        <DatePicker
+                            value={dayjs(riyunDate)}
+                            onChange={(value, dateString) => onChangeDate(value, dateString)}
+                            format="YYYY-MM-DD"
+                            placeholder={'请选择日期'}
+                            style={{width: '300px'}}
+                        />
+                    </Form.Item>
                     <Form.Item label="木日主日运" name="mu">
                         <TextArea value={riyunData.mu} onChange={handleChange} name="mu" rows={3} />
                     </Form.Item>

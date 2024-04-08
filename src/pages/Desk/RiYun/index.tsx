@@ -307,7 +307,7 @@ function RiYun() {
                                 <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>
                                     <div className="ItemTitle">今日美食</div>
                                     {/* <div>今日运势大吉•可造</div> */}
-                                    <div>推荐：{riyunInfo[e].foods.recomList}</div>
+                                    <div>食品：{riyunInfo[e].foods.recomList}</div>
                                     <div>功效：{riyunInfo[e].foods.effectList}</div>
                                 </div>
                                 <div className="ContentItem" style={{backgroundColor: COLOR[`sub${e}`], color: COLOR[`main${e}`]}}>

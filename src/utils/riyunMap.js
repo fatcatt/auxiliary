@@ -302,7 +302,7 @@ const toboos = {
         },
         {
             recommend: '表白',
-            effectList: ['可能因情绪波动大', '导致关系反而疏远']
+            effectList: ['注意情绪波动', '避免关系变疏远']
         },
         {
             recommend: '固步自封',

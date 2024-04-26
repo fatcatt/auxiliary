@@ -179,7 +179,7 @@ function RiYun() {
                 unuse = myElement;
                 break;
             case '我生':
-                use = generateSequence[generateIndex - 1];
+                use = generateSequence[gednerateIndex - 1];
                 unuse = generateSequence[generateIndex + 1];
                 break;
         }

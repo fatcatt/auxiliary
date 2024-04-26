@@ -179,7 +179,7 @@ function RiYun() {
                 unuse = myElement;
                 break;
             case '我生':
-                use = generateSequence[gednerateIndex - 1];
+                use = generateSequence[generateIndex - 1];
                 unuse = generateSequence[generateIndex + 1];
                 break;
         }
@@ -207,8 +207,6 @@ function RiYun() {
         for (let i = 0; i < wuxing.length; i++) {
             const relation = getRelation(wuxing[i], maxStrength);
             _strengthMap[wuxing[i]] = relation;
-            console.log(_riyunInfo[wuxing[i]]['foods']);
-            console.log(foods[relation['use']]);
             _riyunInfo[wuxing[i]]['foods']['recomList'] = selectRandomTwo(foods[relation['use']].recomList);
             _riyunInfo[wuxing[i]]['foods']['effectList'] = selectRandomTwo(foods[relation['use']].effectList);
             _riyunInfo[wuxing[i]]['communicates'] = selectRandomTwo(communicates);

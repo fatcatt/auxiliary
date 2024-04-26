@@ -184,7 +184,7 @@ function RiYun() {
                 break;
         }
 
-        return {use, unuse};
+        return {use: use || 'shui', unuse: unuse || 'huo'};
     }
 
     useEffect(() => {
@@ -207,6 +207,8 @@ function RiYun() {
         for (let i = 0; i < wuxing.length; i++) {
             const relation = getRelation(wuxing[i], maxStrength);
             _strengthMap[wuxing[i]] = relation;
+            console.log(_riyunInfo[wuxing[i]]['foods']);
+            console.log(foods[relation['use']]);
             _riyunInfo[wuxing[i]]['foods']['recomList'] = selectRandomTwo(foods[relation['use']].recomList);
             _riyunInfo[wuxing[i]]['foods']['effectList'] = selectRandomTwo(foods[relation['use']].effectList);
             _riyunInfo[wuxing[i]]['communicates'] = selectRandomTwo(communicates);
